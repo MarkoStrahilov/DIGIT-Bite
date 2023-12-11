@@ -1,7 +1,18 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import DIGITBiteService from "../../repository/digitBiteRepository";
 
 const App = () => {
+
+    const [menu,setMenu] = useState([])
+
+    useEffect(() => {
+        DIGITBiteService.fetchProducts()
+            .then((data) => {
+                console.log(data.data)
+            })
+    })
+
   return (
     <Tabs>
       <TabList>
