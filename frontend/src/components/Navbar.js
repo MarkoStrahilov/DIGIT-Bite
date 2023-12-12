@@ -246,4 +246,8 @@ const NAV_ITEMS = [
         label: 'About Us',
         href: '/about-us',
     },
+    {
+        label: 'Cart',
+        href: '/cart'
+    }
 ];

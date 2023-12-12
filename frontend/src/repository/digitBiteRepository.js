@@ -2,9 +2,13 @@ import axios from "../custom-axios/axios";
 
 
 const DIGITBiteService = {
-    fetchProducts: () => {
-        return axios.get("https://www.themealdb.com/api/json/v1/1/categories.php");
+    fetchCategories:async () => {
+        return await axios.get("https://www.themealdb.com/api/json/v1/1/categories.php");
     },
+    fetchItemsByCategory: (category) => {
+        return axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
+    },
+
     deleteProduct: (id) => {
         return axios.delete(`/products/${id}/delete`);
     },
