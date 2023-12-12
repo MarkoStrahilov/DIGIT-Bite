@@ -1,5 +1,6 @@
 export const GlobalStyles = {
     colors: {
-        primary: ""
+        primary: "#",
+        secondary: "#FF5C00"
     }
 }
