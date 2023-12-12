@@ -230,26 +230,20 @@ const MobileNavItem = ({ label, children, href }) => {
 
 const NAV_ITEMS = [
     {
+        label: 'Home',
+        href: "/",
+        color: "transparent"
+    },
+    {
         label: 'Menu',
         href: "/menu"
     },
     {
-        label: 'About us',
-        children: [
-            {
-                label: 'Our Journey',
-                subLabel: 'Find the best food',
-                href: '#',
-            },
-            {
-                label: 'How does it work',
-                subLabel: 'Find the best food',
-                href: '#',
-            },
-        ],
+        label: 'Contact Us',
+        href: "/contact"
     },
     {
-        label: 'Cart',
-        href: '#',
+        label: 'About Us',
+        href: '/about-us',
     },
 ];
