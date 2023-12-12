@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Studly';
+    src: url('Studly Regular.otf') format('truetype'); /* Update the path and format accordingly */
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url("Montserrat-Regular.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family: 'Norwester';
+    src: url("norwester.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}

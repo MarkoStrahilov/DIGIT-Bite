@@ -39,7 +39,11 @@ const App = () => {
         <Route path='/about-us' element={<About />}/>
       </Routes>
     </div>
+
   )
 }
+
+
+
 
 export default App
