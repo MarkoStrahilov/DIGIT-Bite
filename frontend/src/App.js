@@ -1,6 +1,12 @@
 import React from 'react'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 
+// const fetchData = async() => {
+//   const res = await axios.get("")
+//   console.log(res.data)
+// }
+
+
 const App = () => {
   return (
     <Tabs>
