@@ -31,6 +31,7 @@ const App = () => {
     //return  <p key={category.idCategory}>{category.strCategory}</p>
     //})}
 
+<<<<<<< HEAD
     return (
         <div>
             <Routes>
@@ -42,6 +43,22 @@ const App = () => {
             </Routes>
         </div>
     )
+=======
+  return (
+    <div>
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/menu' element={<Menu />}/>
+        <Route path='/contact' element={<Contact />}/>
+        <Route path='/about-us' element={<About />}/>
+      </Routes>
+    </div>
+
+  )
+>>>>>>> cards
 }
+
+
+
 
 export default App
