@@ -20,6 +20,7 @@ import {
     ChevronDownIcon,
     ChevronRightIcon,
 } from '@chakra-ui/icons';
+import logo from '../images/logo.png'
 
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -36,15 +37,17 @@ export default function WithSubnavigation() {
     return (
         <Box>
             <Flex
-                bg={useColorModeValue('white', 'gray.800')}
-                color={useColorModeValue('gray.600', 'white')}
+                bg={useColorModeValue('transparent', 'gray.600')}
+                color='white'
+                fontSize={30}
                 minH={'60px'}
                 py={{ base: 2 }}
                 px={{ base: 4 }}
                 borderBottom={1}
                 borderStyle={'solid'}
                 borderColor={useColorModeValue('gray.200', 'gray.900')}
-                align={'center'}>
+                align={'center'}
+                >
                 <Flex
                     flex={{ base: 1, md: 'auto' }}
                     ml={{ base: -2 }}
@@ -58,22 +61,12 @@ export default function WithSubnavigation() {
                         aria-label={'Toggle Navigation'}
                     />
                 </Flex>
-                <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-                    {/* <Image style={logoStyles} src={logo} /> */}
+                <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'center' }}>
+                    <Image style={logoStyles} src={logo} boxSize='100px'/>
                     <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
                         <DesktopNav />
                     </Flex>
                 </Flex>
-
-                <Link to={'/sign-in'}>
-                    <Button
-                        display={{ base: 'none', md: 'inline-flex' }}
-                        fontSize={'sm'}
-                        fontWeight={600}
-                        colorScheme='linkedin'>
-                        Sign In
-                    </Button>
-                </Link>
             </Flex>
 
             <Collapse in={isOpen} animateOpacity>
@@ -97,9 +90,9 @@ const DesktopNav = () => {
                             <Link
                                 p={2}
                                 to={navItem.href ?? '#'}
-                                fontSize={'sm'}
+                                fontSize={30}
                                 fontWeight={500}
-                                color={linkColor}
+                                color={"white"}
                                 _hover={{
                                     textDecoration: 'none',
                                     color: linkHoverColor,
@@ -138,7 +131,9 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
             display={'block'}
             p={2}
             rounded={'md'}
-            _hover={{ bg: useColorModeValue('blue.50', 'gray.900') }}>
+            color={'white'}
+            fontSize={30}
+            >
             <Stack direction={'row'} align={'center'}>
                 <Box>
                     <Text
