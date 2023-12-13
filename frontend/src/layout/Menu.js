@@ -19,9 +19,13 @@ const Menu = () => {
   return (
     <Box>
       <Navbar />
-      <Flex>
-          <MenuSidebar data={categories}/>
-          <MenuMainContent />
+      <Flex maxW='80%'
+        border={'1px solid black'}
+        m={"auto"}
+        p={10}
+      >
+        <MenuSidebar data={categories} />
+        <MenuMainContent />
       </Flex>
     </Box>
 

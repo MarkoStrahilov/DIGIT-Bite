@@ -2,10 +2,10 @@ import axios from "../custom-axios/axios";
 
 
 const DIGITBiteService = {
-    fetchCategories:async () => {
+    fetchCategories: async () => {
         return await axios.get("https://www.themealdb.com/api/json/v1/1/categories.php");
     },
-    fetchItemsByCategory:async (category) => {
+    fetchItemsByCategory: async (category) => {
         return await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
     },
 
@@ -15,9 +15,9 @@ const DIGITBiteService = {
     addProduct: (name, image, price, brandId) => {
         return axios.post("/products/add", {
             "name": name,
-            "image" : image,
+            "image": image,
             "price": price,
-            "brandId" : brandId
+            "brandId": brandId
         });
     },
     editProduct: (id, name, image, price, brandId) => {
