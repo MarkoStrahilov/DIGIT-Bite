@@ -1,0 +1,80 @@
+Index: src/components/App/App.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, { useEffect, useState } from 'react'\r\nimport DIGITBiteService from \"../../repository/digitBiteRepository\";\r\nimport { Routes, Route } from 'react-router-dom'\r\nimport Home from '../../layout/Home';\r\n\r\nconst App = () => {\r\n\r\n  const [menu, setMenu] = useState([])\r\n\r\n  const [categories, setCategories] = useState([])\r\n\r\n  //todo change name\r\n  useEffect(() => {\r\n    DIGITBiteService.fetchProducts()\r\n      .then((data) => {\r\n        // console.log\r\n        setCategories(data.data.categories)\r\n      })\r\n  }, [])\r\n\r\n  // useEffect(() => {\r\n  //     fetch(\"https://www.themealdb.com/api/json/v1/1/categories.php\").then(res => res.json().then(data => setCategories(data.categories), \"-------------------\"))\r\n  //\r\n  //      // fetch(\"https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood\").then(res => res.json().then(data => console.log(data), \"-------------------\"))\r\n  // }, [])\r\n  //             {categories?.map(category => {\r\n  //return  <p key={category.idCategory}>{category.strCategory}</p>\r\n  //})}\r\n\r\n  return (\r\n    <div>\r\n      <Routes>\r\n        <Route path='/' element={<Home />}/>\r\n      </Routes>\r\n    </div>\r\n  )\r\n}\r\n\r\nexport default App
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/App/App.js b/src/components/App/App.js
+--- a/src/components/App/App.js	(revision 9456d16fd1f4b081125cbed2d81b556357cfccca)
++++ b/src/components/App/App.js	(date 1702385325911)
+@@ -2,6 +2,7 @@
+ import DIGITBiteService from "../../repository/digitBiteRepository";
+ import { Routes, Route } from 'react-router-dom'
+ import Home from '../../layout/Home';
++import Menu from '../../layout/Menu';
+ 
+ const App = () => {
+ 
+@@ -9,15 +10,25 @@
+ 
+   const [categories, setCategories] = useState([])
+ 
+-  //todo change name
+   useEffect(() => {
+-    DIGITBiteService.fetchProducts()
++    DIGITBiteService.fetchCategories()
+       .then((data) => {
+-        // console.log
+-        setCategories(data.data.categories)
++        // console.log(data.data.categories)
++        setCategories(data.data)
+       })
+   }, [])
+ 
++    console.log("Categories:", categories);
++
++
++    // useEffect(() => {
++    //   DIGITBiteService.fetchItemsByCategory("Pork")
++    //     .then((data) => {
++    //         console.log(data.data)
++    //     })
++    // }, [])
++
++
+   // useEffect(() => {
+   //     fetch("https://www.themealdb.com/api/json/v1/1/categories.php").then(res => res.json().then(data => setCategories(data.categories), "-------------------"))
+   //
+@@ -31,6 +42,7 @@
+     <div>
+       <Routes>
+         <Route path='/' element={<Home />}/>
++          <Route path='/menu' element={<Menu categories={categories}/>}/>
+       </Routes>
+     </div>
+   )
+Index: src/repository/digitBiteRepository.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import axios from \"../custom-axios/axios\";\r\n\r\n\r\nconst DIGITBiteService = {\r\n    fetchProducts: () => {\r\n        return axios.get(\"https://www.themealdb.com/api/json/v1/1/categories.php\");\r\n    },\r\n    deleteProduct: (id) => {\r\n        return axios.delete(`/products/${id}/delete`);\r\n    },\r\n    addProduct: (name, image, price, brandId) => {\r\n        return axios.post(\"/products/add\", {\r\n            \"name\": name,\r\n            \"image\" : image,\r\n            \"price\": price,\r\n            \"brandId\" : brandId\r\n        });\r\n    },\r\n    editProduct: (id, name, image, price, brandId) => {\r\n        return axios.put(`/products/${id}/edit`, {\r\n            \"name\": name,\r\n            \"image\": image,\r\n            \"price\": price,\r\n            \"brandId\": brandId\r\n        });\r\n    },\r\n    getProduct: (id) => {\r\n        return axios.get(`/products/${id}`);\r\n    }\r\n}\r\n\r\n\r\nexport default DIGITBiteService;\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/repository/digitBiteRepository.js b/src/repository/digitBiteRepository.js
+--- a/src/repository/digitBiteRepository.js	(revision 9456d16fd1f4b081125cbed2d81b556357cfccca)
++++ b/src/repository/digitBiteRepository.js	(date 1702384215744)
+@@ -2,9 +2,12 @@
+ 
+ 
+ const DIGITBiteService = {
+-    fetchProducts: () => {
++    fetchCategories: () => {
+         return axios.get("https://www.themealdb.com/api/json/v1/1/categories.php");
+     },
++    fetchItemsByCategory: async(category) => {
++      return await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
++    },
+     deleteProduct: (id) => {
+         return axios.delete(`/products/${id}/delete`);
+     },
