@@ -14,7 +14,7 @@ import {
     useDisclosure
 } from "@chakra-ui/react";
 
-const Drawer = () => {
+const SideDrawer = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [placement, setPlacement] = React.useState('right')
 
@@ -49,4 +49,4 @@ const Drawer = () => {
     )
 }
 
-export default Drawer;
+export default SideDrawer;

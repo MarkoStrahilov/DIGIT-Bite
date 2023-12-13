@@ -30,20 +30,6 @@ const App = () => {
     //             {categories?.map(category => {
     //return  <p key={category.idCategory}>{category.strCategory}</p>
     //})}
-
-<<<<<<< HEAD
-    return (
-        <div>
-            <Routes>
-                <Route path='/' element={<Home/>}/>
-                <Route path='/menu' element={<Menu/>}/>
-                <Route path='/contact' element={<Contact/>}/>
-                <Route path='/about-us' element={<About/>}/>
-                <Route path='/cart' element={<Drawer/>}/>
-            </Routes>
-        </div>
-    )
-=======
   return (
     <div>
       <Routes>
@@ -55,7 +41,6 @@ const App = () => {
     </div>
 
   )
->>>>>>> cards
 }
 
 
