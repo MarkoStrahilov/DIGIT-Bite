@@ -5,8 +5,8 @@ const DIGITBiteService = {
     fetchCategories:async () => {
         return await axios.get("https://www.themealdb.com/api/json/v1/1/categories.php");
     },
-    fetchItemsByCategory: (category) => {
-        return axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
+    fetchItemsByCategory:async (category) => {
+        return await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
     },
 
     deleteProduct: (id) => {
