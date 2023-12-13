@@ -5,7 +5,9 @@ import Home from '../../layout/Home';
 import Menu from '../../layout/Menu';
 import About from '../../layout/About'
 import Contact from '../../layout/Contact';
-import Drawer from '../../layout/Drawer';
+import SignIn from "../Auth/SignIn";
+import SignUp from "../Auth/SignUp";
+// import Drawer from '../../layout/Drawer';
 
 const App = () => {
 
@@ -37,6 +39,8 @@ const App = () => {
         <Route path='/menu' element={<Menu />}/>
         <Route path='/contact' element={<Contact />}/>
         <Route path='/about-us' element={<About />}/>
+          <Route path='/login' element={<SignIn/>}/>
+          <Route path='/register' element={<SignUp/>}/>
       </Routes>
     </div>
 
