@@ -1,6 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import DIGITBiteService from "../repository/digitBiteRepository";
 import Navbar from '../components/Navbar'
+import MenuMainContent from '../components/MenuMainContent';
+import MenuSidebar from '../components/MenuSidebar';
+import { Box, Flex } from '@chakra-ui/react';
 
 const Menu = () => {
 
@@ -8,37 +11,23 @@ const Menu = () => {
 
   useEffect(() => {
     DIGITBiteService.fetchCategories()
-        .then((data) => {
-          setCategories(data.data.categories)
-        })
+      .then((data) => {
+        setCategories(data.data.categories)
+      })
   }, [])
 
-
-
-  useEffect(() => {
-      DIGITBiteService.fetchItemsByCategory()
-          .then((data) => {
-              console.log(data.data.meals);
-
-          })
-  })
-
   return (
-    <div>
-      <Navbar/>
-      <div>
-        <h2>Menu</h2>
-      </div>
-      <div>
-        <div>
-          {categories.map(category => {
-            return (
-                <p key={category.idCategory}>{category.strCategory}</p>
-            );
-          })}
-        </div>
-      </div>
-    </div>
+    <Box>
+      <Navbar />
+      <Flex maxW='80%'
+        border={'1px solid black'}
+        m={"auto"}
+        p={10}
+      >
+        <MenuSidebar data={categories} />
+        <MenuMainContent />
+      </Flex>
+    </Box>
 
   )
 }
