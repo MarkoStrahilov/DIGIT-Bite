@@ -9,8 +9,6 @@ import { useState, useEffect } from 'react';
 import { auth, db } from '../repository/firebase/firebase';
 import firebase from 'firebase/app';
 import burger from '../images/burger.png'
-import Drawer from '../components/Drawer'
-import { FaShoppingCart } from "react-icons/fa";
 
 const Home = () => {
 
@@ -126,7 +124,6 @@ const Home = () => {
                         <Button color={'white'} mt={6} pl={"48px"} pr={"48px"} pb={6} pt={6} mb={"40px"} borderRadius={30} bg={GlobalStyles.colors.secondary} fontSize={'25px'} fontFamily={"Studly"}>
                             TRY IT
                         </Button>
-                        <Drawer />
                     </Flex>
                 </Box>
 
