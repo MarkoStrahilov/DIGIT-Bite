@@ -33,7 +33,7 @@ import Drawer from './Drawer'
 export default function WithSubnavigation() {
     const { isOpen, onToggle } = useDisclosure();
     const [loading, setLoading] = useState()
-    const navigation = useNavigate()
+    const navigate = useNavigate()
     const [user, setUser] = useState(null);
 
     useEffect(() => {
@@ -51,10 +51,12 @@ export default function WithSubnavigation() {
     }, [])
 
     const handleSignOut = () => {
-        auth.signOut
+        console.log("logging out...")
+
+        auth.signOut()
             .then(() => {
                 setLoading(true)
-                navigation.navigate()
+                navigate("/")
                 setLoading(false)
             })
     }

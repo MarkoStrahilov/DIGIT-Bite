@@ -4,6 +4,7 @@ import {Box} from '@chakra-ui/react'
 import firebaseConfig from '../repository/firebase/firebase'
 import firebase from 'firebase/app';
 import { useNavigate } from 'react-router-dom';
+import SideDrawer from "../components/Drawer";
 
 
 
@@ -58,6 +59,7 @@ const About = (item) => {
 
     return (
         <div>
+            <SideDrawer/>
             {/*<button onClick={() => addToCart(data)}></button>*/}
             <Box>
                 About
