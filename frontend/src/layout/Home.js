@@ -9,6 +9,7 @@ import {useState, useEffect} from 'react';
 import { auth, db } from '../repository/firebase/firebase';
 import firebase from 'firebase/app';
 import burger from '../images/burger.png'
+import ListProductFromShoppingCart from "../components/ListProductFromShoppingCart";
 const Home = () => {
 
     const [user, setUser] = useState(null);

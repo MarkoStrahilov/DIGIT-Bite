@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="275a4215-8cf3-4280-bee7-b85c59a33719" name="Changes" comment="getting active user from firebase database in order to show who is active in the navbar">
+    <list default="true" id="275a4215-8cf3-4280-bee7-b85c59a33719" name="Changes" comment="adding products to shopping cart">
+      <change afterPath="$PROJECT_DIR$/src/components/ListProductFromShoppingCart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Category.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/Home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +126,7 @@
       <workItem from="1702461090255" duration="230000" />
       <workItem from="1702461373311" duration="253000" />
       <workItem from="1702545973958" duration="6594000" />
-      <workItem from="1702553533335" duration="1266000" />
+      <workItem from="1702553533335" duration="4069000" />
     </task>
     <task id="LOCAL-00001" summary="added axios, repository fetching">
       <created>1702307473831</created>
@@ -177,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702468465209</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="adding products to shopping cart">
+      <created>1702555059871</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1702555059871</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,6 +221,7 @@
     <MESSAGE value="extra files" />
     <MESSAGE value="added authentication login for firebase" />
     <MESSAGE value="finished the authentication management" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished the authentication management" />
+    <MESSAGE value="adding products to shopping cart" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding products to shopping cart" />
   </component>
 </project>
