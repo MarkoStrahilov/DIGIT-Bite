@@ -1,8 +1,9 @@
-import { Button, Box, Image, Badge, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
+import { useRef } from 'react'
+import { Button, Box, Image, Badge, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Text } from '@chakra-ui/react'
 import { FaStar } from "react-icons/fa";
 import { GlobalStyles } from '../constants/GlobalStyles'
 import '../Fonts/fonts.css'
-import Drawer from './Drawer'
+import PopModal from './PopModal'
 
 function Card({ data, addToCart }) {
 
@@ -22,11 +23,6 @@ function Card({ data, addToCart }) {
         reviewCount: getRandomNumberFunc(15, 1),
         rating: getRandomNumberFunc(5, 1),
         isNew: getRandomNumberFunc(15, 1) % 2 === 0 ? true : false
-    }
-
-    const handleAddToCart = () => {
-        console.log("handle cart function: ", mealItem)
-        addToCart(mealItem)
     }
 
     return (
@@ -100,8 +96,9 @@ function Card({ data, addToCart }) {
                     </Box>
                 </Box>
             </Box>
-            <Button onClick={handleAddToCart}>Add To Card</Button>
-        </Box>
+            
+            <PopModal mealItem={mealItem} addToCart={addToCart}/>
+        </Box> 
     )
 }
 
