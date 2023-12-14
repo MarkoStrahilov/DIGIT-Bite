@@ -18,7 +18,8 @@ import { FaShoppingCart } from "react-icons/fa";
 import { GlobalStyles } from '../constants/GlobalStyles';
 
 
-const SideDrawer = () => {
+const SideDrawer = ({data}) => {
+    console.log(data)
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [placement, setPlacement] = useState('right')
 
