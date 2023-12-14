@@ -13,7 +13,7 @@ import {
     useColorModeValue,
     useDisclosure,
     Image,
-    css,
+    Skeleton,
 } from '@chakra-ui/react';
 import {
     HamburgerIcon,
@@ -21,22 +21,18 @@ import {
     ChevronDownIcon,
     ChevronRightIcon,
 } from '@chakra-ui/icons';
-
 import logo from '../images/logo.png';
 import { useEffect, useState } from 'react';
 import { GlobalStyles } from '../constants/GlobalStyles';
 import firebase from 'firebase/app';
 import { auth } from '../repository/firebase/firebase';
 import { Link, useNavigate } from 'react-router-dom';
+import UserDetailss from './Auth/UserDetailss';
+import Drawer from './Drawer'
 
 export default function WithSubnavigation() {
     const { isOpen, onToggle } = useDisclosure();
-
-    const logoStyles = {
-        width: '100px',
-        height: '100px',
-    };
-
+    const [loading, setLoading] = useState()
     const navigation = useNavigate()
     const [user, setUser] = useState(null);
 
@@ -44,6 +40,7 @@ export default function WithSubnavigation() {
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 setUser(user);
+                setLoading(false)
                 console.log('This is the user: ', user.email)
             } else {
                 // No user is signed in.
@@ -54,17 +51,35 @@ export default function WithSubnavigation() {
     }, [])
 
     const handleSignOut = () => {
-        auth.signOut.then(() => {
-            navigation.navigate()
-        })
+        auth.signOut
+            .then(() => {
+                setLoading(true)
+                navigation.navigate()
+                setLoading(false)
+            })
+    }
+
+    const logoStyles = {
+        width: '100px',
+        height: '100px'
+    };
+
+    if (loading) {
+        return (
+            <Stack>
+                <Skeleton height='20px' />
+                <Skeleton height='20px' />
+                <Skeleton height='20px' />
+            </Stack>
+        )
     }
 
     return (
         <Box>
             <Flex
-                bg={useColorModeValue('transparent', 'gray.600')}
+                bg={"transparent"}
                 color='#FF5C00'
-                fontSize={['sm', 'md', 'lg',"30px"]}
+                fontSize={36.1}
                 fontFamily={GlobalStyles.fonts.primary}
                 minH={'60px'}
                 py={{ base: 2 }}
@@ -85,18 +100,18 @@ export default function WithSubnavigation() {
                         aria-label={'Toggle Navigation'}
                     />
                 </Flex>
-                <Flex flex={{ base: 1 }} alignItems={'center'} display={["none","none","none","flex","flex","flex"]}>
+                <Flex flex={{ base: 1 }} alignItems={'center'}>
                     <Image style={logoStyles} src={logo} boxSize='100px' />
                     <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
                         <DesktopNav />
                     </Flex>
                 </Flex>
                 {user ?
-                    <h1>Logged in</h1>
+                    <UserDetailss user={user} onClickHandle={handleSignOut} />
                     :
                     <Link to={'/login'}>
                         <Button
-                            display={["flex"]}
+                            display={{ base: 'none', md: 'inline-flex' }}
                             fontSize={'sm'}
                             fontWeight={600}
                             bg={GlobalStyles.colors.secondary}
@@ -132,7 +147,7 @@ const DesktopNav = () => {
                             <Link
                                 p={2}
                                 to={navItem.href ?? '#'}
-                                fontSize={[30]}
+                                fontSize={30}
                                 fontWeight={500}
                                 color={'white'}
                                 _hover={{
@@ -155,9 +170,17 @@ const DesktopNav = () => {
                                 minW={'sm'}
                             >
                                 <Stack>
-                                    {navItem.children.map((child) => (
-                                        <DesktopSubNav key={child.label} {...child} />
-                                    ))}
+                                    {navItem && navItem.map((child) => {
+                                        {
+                                            child.showLink
+                                                ?
+                                                <DesktopSubNav key={child.label} {...child} />
+                                                :
+                                                <Text py={2}>
+                                                    <Drawer />
+                                                </Text>
+                                        }
+                                    })}
                                 </Stack>
                             </PopoverContent>
                         )}
@@ -222,7 +245,8 @@ const MobileNav = () => {
 };
 
 const MobileNavItem = ({ label, children, href }) => {
-    const { isOpen, onToggle } = useDisclosure();
+    const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
+    const [placement, setPlacement] = useState('right')
 
     return (
         <Stack spacing={4} onClick={children && onToggle}>
@@ -263,12 +287,19 @@ const MobileNavItem = ({ label, children, href }) => {
                     borderColor={useColorModeValue('gray.200', 'gray.700')}
                     align={'start'}
                 >
-                    {children &&
-                        children.map((child) => (
-                            <Link key={child.label} py={2} to={child.href}>
-                                {child.label}
-                            </Link>
-                        ))}
+                    {children && children.map((child) => {
+                        {
+                            child.showLink
+                                ?
+                                <Link key={child.label} py={2} to={child.href}>
+                                    {child.label}
+                                </Link>
+                                :
+                                <Text py={2}>
+                                    <Drawer />
+                                </Text>
+                        }
+                    })}
                 </Stack>
             </Collapse>
         </Stack>
@@ -279,23 +310,21 @@ const NAV_ITEMS = [
     {
         label: 'Home',
         href: '/',
-        color: 'transparent',
+        showLink: true
     },
     {
         label: 'Menu',
         href: '/menu',
+        showLink: true
     },
     {
-        label: 'Contact Us',
+        label: 'Contact',
         href: '/contact',
+        showLink: true
     },
     {
-        label: 'About Us',
+        label: 'About',
         href: '/about-us',
-    },
-    {
-        label: 'Cart',
-        href: '/cart',
-    },
-
+        showLink: true
+    }
 ];

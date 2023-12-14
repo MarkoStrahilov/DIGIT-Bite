@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="275a4215-8cf3-4280-bee7-b85c59a33719" name="Changes" comment="remove old Auth folder with SignIn.jsx file">
+    <list default="true" id="275a4215-8cf3-4280-bee7-b85c59a33719" name="Changes" comment="adding products to shopping cart">
+      <change afterPath="$PROJECT_DIR$/src/components/ListProductFromShoppingCart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/Home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -20,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="authentication" />
+        <entry key="$PROJECT_DIR$/.." value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -42,6 +53,7 @@
     <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -64,6 +76,25 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="D:/Netaville-DIGIT/DIGIT-Bite/frontend" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -75,6 +106,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.D:/Netaville-DIGIT/DIGIT-Bite/frontend" />
+        <item itemvalue="Gradle.D:/Netaville-DIGIT/DIGIT-Bite/frontend" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -88,6 +125,8 @@
       <workItem from="1702376336934" duration="17912000" />
       <workItem from="1702461090255" duration="230000" />
       <workItem from="1702461373311" duration="253000" />
+      <workItem from="1702545973958" duration="6594000" />
+      <workItem from="1702553533335" duration="4069000" />
     </task>
     <task id="LOCAL-00001" summary="added axios, repository fetching">
       <created>1702307473831</created>
@@ -138,18 +177,29 @@
       <option name="project" value="LOCAL" />
       <updated>1702468465209</updated>
     </task>
-    <task id="LOCAL-00008" summary="remove old Auth folder with SignIn.jsx file">
-      <created>1702470398402</created>
+    <task id="LOCAL-00008" summary="adding products to shopping cart">
+      <created>1702555059871</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1702470398402</updated>
+      <updated>1702555059871</updated>
     </task>
     <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -171,7 +221,7 @@
     <MESSAGE value="extra files" />
     <MESSAGE value="added authentication login for firebase" />
     <MESSAGE value="finished the authentication management" />
-    <MESSAGE value="remove old Auth folder with SignIn.jsx file" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove old Auth folder with SignIn.jsx file" />
+    <MESSAGE value="adding products to shopping cart" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding products to shopping cart" />
   </component>
 </project>
