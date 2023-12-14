@@ -5,11 +5,10 @@ import { logo } from '../images/logo.png'
 import fullBackground from '../images/backgroundImage.png'
 import { GlobalStyle } from '@chakra-ui/react'
 import { GlobalStyles } from '../constants/GlobalStyles'
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { auth, db } from '../repository/firebase/firebase';
 import firebase from 'firebase/app';
 import burger from '../images/burger.png'
-import ListProductFromShoppingCart from "../components/ListProductFromShoppingCart";
 const Home = () => {
 
     const [user, setUser] = useState(null);
@@ -120,9 +119,11 @@ const Home = () => {
                         Fast Food Indulgences – Unveiling an Array of Quick Bites for On-the-Go
                         Gratification and Instant Flavorful Bliss!"
                     </Text>
-                    <Button color={'white'} mt={6} pl={"48px"} pr={"48px"} pb={6} pt={6} mb={"40px"} borderRadius={30} bg={GlobalStyles.colors.secondary} fontSize={'25px'} fontFamily={"Studly"}>
-                        TRY IT
-                    </Button>
+                    <Flex>
+                        <Button color={'white'} mt={6} pl={"48px"} pr={"48px"} pb={6} pt={6} mb={"40px"} borderRadius={30} bg={GlobalStyles.colors.secondary} fontSize={'25px'} fontFamily={"Studly"}>
+                            TRY IT
+                        </Button>
+                    </Flex>
                 </Box>
 
                 <Box flexShrink={0} mb={[0, 0, 0]}>
@@ -131,7 +132,7 @@ const Home = () => {
                         alt="Burger"
                         maxWidth={[100, 100, 100, 500]} // Adjust based on your design
                         width="79%"
-                        maxHeight={["auto","auto","30vh"]}
+                        maxHeight={["auto", "auto", "30vh"]}
                         style={{
                             transform: 'translateY(-50px)', // Default translateY value
                             '@media screen and (min-width: 768px)': {
