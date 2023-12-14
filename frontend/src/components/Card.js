@@ -1,11 +1,15 @@
-import { Box, Image, Badge, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
+import { Button, Box, Image, Badge, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
 import { FaStar } from "react-icons/fa";
 import {GlobalStyles} from '../constants/GlobalStyles'
 import '../Fonts/fonts.css'
 function Card({ data }) {
 
-    const rand = Math.floor(Math.random() * (130 - 10 + 1)) + 10;
+    const getRandomNumberFunc = (max, min) => {
+        const rand = Math.floor(Math.random() * (max - min + 1)) + min;
+        return rand
+    }
 
+   
 
     const mealItem = {
         imageUrl: data.strMealThumb,
@@ -13,10 +17,10 @@ function Card({ data }) {
         beds: 3,
         baths: 2,
         title: data?.strMeal,
-        formattedPrice: Math.floor(Math.random() * (130 - 10 + 1)) + 10,
-        reviewCount: Math.floor(Math.random() * (15 - 1 + 1)) + 1,
-        rating: Math.floor(Math.random() * (5 - 1 + 1)) + 1,
-        isNew: rand % 2 === 0 ? true : false
+        formattedPrice: getRandomNumberFunc(130, 0),
+        reviewCount: getRandomNumberFunc(15, 1),
+        rating: getRandomNumberFunc(5, 1),
+        isNew: getRandomNumberFunc(15, 1) % 2 === 0 ? true : false
     }
 
     console.log(mealItem?.isNew)
@@ -27,6 +31,7 @@ function Card({ data }) {
             borderRadius='lg'
             overflow='hidden'
             m={1}
+            bg={"white"}
         >
             <Image src={mealItem.imageUrl} alt={mealItem.imageAlt} />
 
@@ -101,6 +106,7 @@ function Card({ data }) {
                     </Box>
                 </Box>
             </Box>
+            <Button>Add To Card</Button>
         </Box>
     )
 }

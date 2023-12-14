@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar'
 import MenuMainContent from '../components/MenuMainContent';
 import MenuSidebar from '../components/MenuSidebar';
 import { Box, Flex } from '@chakra-ui/react';
+import fullBackground from '../images/backgroundImage.png'
 
 const Menu = () => {
 
@@ -17,7 +18,12 @@ const Menu = () => {
   }, [])
 
   return (
-    <Box>
+    <Box             
+    minHeight={'100vh'}
+    bgImage={fullBackground}
+    bgPosition={'center'}
+    bgRepeat={'no-repeat'}
+    bgSize={'cover'}>
       <Navbar />
       <Flex maxW='80%'
         border={'1px solid black'}
