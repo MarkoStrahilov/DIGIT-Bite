@@ -5,6 +5,7 @@ import MenuMainContent from '../components/MenuMainContent';
 import MenuSidebar from '../components/MenuSidebar';
 import { Box, Flex } from '@chakra-ui/react';
 import fullBackground from '../images/backgroundImage.png'
+import CircularCategory from '../components/CircularCategory';
 
 const Menu = () => {
 
@@ -29,8 +30,9 @@ const Menu = () => {
         m={"auto"}
         p={10}
       >
-        <MenuSidebar data={categories} />
-        <MenuMainContent />
+        {/* <MenuSidebar data={categories} /> */}
+        {/*<MenuMainContent /> */}
+        <CircularCategory data={categories}/>
       </Flex>
     </Box>
 

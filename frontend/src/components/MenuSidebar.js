@@ -5,6 +5,8 @@ import { GlobalStyles } from '../constants/GlobalStyles'
 
 const MenuSidebar = ({ data }) => {
 
+    console.log(data)
+
     return (
         <Box
             minW={"25%"}
