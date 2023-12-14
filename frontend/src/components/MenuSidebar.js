@@ -1,20 +1,32 @@
 import React, { useState, useEffect } from 'react'
 import { Box, Text } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
+import { GlobalStyles } from '../constants/GlobalStyles'
 
 const MenuSidebar = ({ data }) => {
 
     return (
         <Box
-            border={'1px solid black'}
             minW={"25%"}
             mr={20}
             bg={"white"}
-            p={3}
+            p={5}
+            borderRadius={10}
         >
             {data.map(element => (
                 <Link key={element.idCategory} to={`category/${element?.strCategory}`}>
-                    <Text border={'1px solid black'} p={2} mb={3}>{element?.strCategory}</Text>
+                    <Text
+                        fontFamily={GlobalStyles.fonts.primary}
+                        _hover={{
+                            background: GlobalStyles.colors.secondary,
+                            color: "white",
+                            borderRadius: 10
+                          }}
+                        p={4}
+                        mb={3}
+                    >
+                        {element?.strCategory}
+                    </Text>
                 </Link>
             ))
             }

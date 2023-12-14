@@ -22,7 +22,10 @@ import {
     ChevronRightIcon,
 } from '@chakra-ui/icons';
 import logo from '../images/logo.png';
-
+import { useEffect, useState } from 'react';
+import { GlobalStyles } from '../constants/GlobalStyles';
+import firebase from 'firebase/app';
+import { auth } from '../repository/firebase/firebase';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function WithSubnavigation() {
@@ -34,19 +37,38 @@ export default function WithSubnavigation() {
 
     };
 
+    const navigation = useNavigate()
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                setUser(user);
+                console.log('This is the user: ', user.email)
+            } else {
+                // No user is signed in.
+                setUser(null);
+                console.log('There is no logged in user');
+            }
+        });
+    }, [])
+
+    const handleSignOut = () => {
+        auth.signOut.then(() => {
+            navigation.navigate()
+        })
+    }
+
     return (
         <Box>
             <Flex
                 bg={useColorModeValue('transparent', 'gray.600')}
                 color='#FF5C00'
                 fontSize={36.1}
-                fontFamily={'Studly'}
+                fontFamily={GlobalStyles.fonts.primary}
                 minH={'60px'}
                 py={{ base: 2 }}
                 px={{ base: 4 }}
-                borderBottom={1}
-                borderStyle={'solid'}
-                borderColor={useColorModeValue('gray.200', 'gray.900')}
                 align={'center'}
             >
                 <Flex
@@ -57,18 +79,34 @@ export default function WithSubnavigation() {
                     <IconButton
                         onClick={onToggle}
                         icon={
-                            isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
+                            isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon color={'white'} w={5} h={5} />
                         }
                         variant={'ghost'}
                         aria-label={'Toggle Navigation'}
                     />
                 </Flex>
-                <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'center' }} alignItems={'center'}>
+                <Flex flex={{ base: 1 }} alignItems={'center'}>
                     <Image style={logoStyles} src={logo} boxSize='100px' />
                     <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
                         <DesktopNav />
                     </Flex>
                 </Flex>
+                {user ?
+                    <h1>Logged in</h1>
+                    :
+                    <Link to={'/login'}>
+                        <Button
+                            display={{ base: 'none', md: 'inline-flex' }}
+                            fontSize={'sm'}
+                            fontWeight={600}
+                            bg={GlobalStyles.colors.secondary}
+                            color={'white'}
+                            pl={10}
+                            pr={10}
+                        >
+                            Sign In
+                        </Button>
+                    </Link>}
             </Flex>
 
             <Collapse in={isOpen} animateOpacity>

@@ -35,7 +35,7 @@ const MenuMainContent = () => {
         return <Loading />
     } else {
         return (
-            <Box border={'1px solid black'}>
+            <Box>
                 {data ? <Category data={data} /> : null}
             </Box>
         )

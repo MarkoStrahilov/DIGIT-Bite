@@ -1,6 +1,6 @@
 import { Button, Box, Image, Badge, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
 import { FaStar } from "react-icons/fa";
-import {GlobalStyles} from '../constants/GlobalStyles'
+import { GlobalStyles } from '../constants/GlobalStyles'
 import '../Fonts/fonts.css'
 function Card({ data }) {
 
@@ -9,13 +9,12 @@ function Card({ data }) {
         return rand
     }
 
-   
-
     const mealItem = {
-        imageUrl: data.strMealThumb,
+        mealId: data?.idMeal,
+        imageUrl: data?.strMealThumb,
         imageAlt: 'Meal Item',
-        beds: 3,
-        baths: 2,
+        beds: getRandomNumberFunc(2, 6),
+        baths: getRandomNumberFunc(2, 10),
         title: data?.strMeal,
         formattedPrice: getRandomNumberFunc(130, 0),
         reviewCount: getRandomNumberFunc(15, 1),
@@ -23,10 +22,8 @@ function Card({ data }) {
         isNew: getRandomNumberFunc(15, 1) % 2 === 0 ? true : false
     }
 
-    console.log(mealItem?.isNew)
-
     return (
-        <Box maxW={'230px'}
+        <Box maxW={'300px'}
             borderWidth='2px'
             borderRadius='lg'
             overflow='hidden'
@@ -45,19 +42,10 @@ function Card({ data }) {
                             backgroundColor={GlobalStyles.colors.secondary}
                             textAlign={'center'}
                             fontSize={'10px'}
+                            mr={2}
                         >
                             New
-                        </Badge> :
-                        <Badge
-                            borderRadius='full'
-                            px='2'
-                            color='white'
-                            backgroundColor='lightGreen'
-                            textAlign={'center'}
-                            fontSize={'10px'}
-                        >
-                            Available
-                        </Badge>
+                        </Badge> : null
                     }
                     <Box
                         color='gray'
@@ -65,9 +53,8 @@ function Card({ data }) {
                         letterSpacing='wide'
                         fontSize='xs'
                         textTransform='uppercase'
-                        ml='2'
                     >
-                        {mealItem.beds} Serving size &bull; {mealItem.baths} Ingredients
+                        {mealItem.beds} Serving sizes &bull; {mealItem.baths} Ingredients
                     </Box>
                 </Box>
 

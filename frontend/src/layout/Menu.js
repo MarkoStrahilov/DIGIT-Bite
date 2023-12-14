@@ -26,7 +26,6 @@ const Menu = () => {
     bgSize={'cover'}>
       <Navbar />
       <Flex maxW='80%'
-        border={'1px solid black'}
         m={"auto"}
         p={10}
       >
