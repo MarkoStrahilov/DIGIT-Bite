@@ -2,12 +2,13 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import { Box, Button, Flex, Text } from '@chakra-ui/react'
 import { logo } from '../images/logo.png'
-import fullBackground from '../images/fullBackground.png'
+import fullBackground from '../images/backgroundImage.png'
 import { GlobalStyle } from '@chakra-ui/react'
 import { GlobalStyles } from '../constants/GlobalStyles'
 import {useState, useEffect} from 'react';
 import { auth, db } from '../repository/firebase/firebase';
 import firebase from 'firebase/app';
+import burger from '../images/burger.png'
 const Home = () => {
 
     const [user, setUser] = useState(null);
@@ -84,31 +85,69 @@ const Home = () => {
             bgRepeat={'no-repeat'}
             bgSize={'cover'}
         >
-            <Navbar user={user}/>
-            <Box ml={40} mt={35}>
+            <Navbar />
+            <Box ml={[2, 4, 190]} mt={[10, 15, 160]} display={"flex"} flexDirection={["column", "column", "row-reverse"]}>
                 <Box>
-                    <Flex flexDir={'column'}>
+                    <Flex flexDirection={['column', 'column', 'column']}>
                         <Box
                             color="white"
-                            fontSize={80}
-                            fontFamily={'Raleway'}
-                        > DIGIT BITE
+                            fontSize={[50, 70, 80, 100]}
+                            fontFamily={'Norwester'}
+                            mb={[-6, -8, -10]}
+                        >
+                            DIGIT BITE
                         </Box>
                         <Box
-                            fontSize={120}
-                            fontFamily={'Raleway'}
+                            fontSize={[100, 140, 160, 180]}
+                            fontFamily={'Norwester'}
                             color={GlobalStyles.colors.secondary}
+                            mt={[-4, -6, -8, -8]}
+                            ml={[-1, -1, -1, -2]}
                         >
                             BURGER
                         </Box>
-
                     </Flex>
-                    <Text w={500} color={'#ffff'} lineHeight={8}>Digit Bite Burger: Elevate Your Culinary Experience with Lightning-Fast Fast Food Indulgences – Unveiling an Array of Quick Bites for On-the-Go Gratification and Instant Flavorful Bliss!"</Text>
+                    <Text
+                        w={['100%', '100%', '75%']}
+                        color={'whitesmoke'}
+                        textAlign={'left'}
+                        fontFamily={'Montserrat'}
+                        mt={-3}
+                        fontSize={['14px', '16px', '18px']}
+                    >
+                        Digit Bite Burger: Elevate Your Culinary Experience with Lightning-Fast
+                        Fast Food Indulgences – Unveiling an Array of Quick Bites for On-the-Go
+                        Gratification and Instant Flavorful Bliss!"
+                    </Text>
+                    <Button color={'white'} mt={6} pl={"48px"} pr={"48px"} pb={6} pt={6} mb={"40px"} borderRadius={30} bg={GlobalStyles.colors.secondary} fontSize={'25px'} fontFamily={"Studly"}>
+                        TRY IT
+                    </Button>
                 </Box>
-                <Button color={'white'} mt={8} pl={10} pr={10} pb={5} pt={5} bg={GlobalStyles.colors.secondary}>TRY IT</Button>
+
+                <Box flexShrink={0} mb={[0, 0, 0]}>
+                    <img
+                        src={burger}
+                        alt="Burger"
+                        maxWidth={[100, 100, 100, 500]} // Adjust based on your design
+                        width="79%"
+                        maxHeight={["auto","auto","30vh"]}
+                        style={{
+                            transform: 'translateY(-50px)', // Default translateY value
+                            '@media screen and (min-width: 768px)': {
+                                transform: 'translateY(-100px)', // Adjust for larger screens
+                            },
+                            '@media screen and (min-width: 1024px)': {
+                                transform: 'translateY(-150px)', // Adjust for even larger screens
+                            },
+                        }}
+                    />
+                </Box>
+
             </Box>
-        </Box >
-    )
-}
+        </Box>
+    );
+};
+
+
 
 export default Home
