@@ -2,7 +2,7 @@ import { Button, Box, Image, Badge, CardHeader, CardBody, CardFooter } from '@ch
 import { FaStar } from "react-icons/fa";
 import { GlobalStyles } from '../constants/GlobalStyles'
 import '../Fonts/fonts.css'
-function Card({ data }) {
+function Card({ data, addToCart }) {
 
     const getRandomNumberFunc = (max, min) => {
         const rand = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -20,6 +20,11 @@ function Card({ data }) {
         reviewCount: getRandomNumberFunc(15, 1),
         rating: getRandomNumberFunc(5, 1),
         isNew: getRandomNumberFunc(15, 1) % 2 === 0 ? true : false
+    }
+
+    const handleAddToCart = () => {
+        console.log("handle cart function: ", mealItem)
+        addToCart(mealItem)
     }
 
     return (
@@ -93,7 +98,7 @@ function Card({ data }) {
                     </Box>
                 </Box>
             </Box>
-            <Button>Add To Card</Button>
+            <Button onClick={handleAddToCart}>Add To Card</Button>
         </Box>
     )
 }
