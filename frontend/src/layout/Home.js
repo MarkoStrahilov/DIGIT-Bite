@@ -86,7 +86,7 @@ const Home = () => {
             bgSize={'cover'}
         >
             <Navbar />
-            <Box ml={[2, 4, 190]} mt={[10, 15, 160]} display={"flex"} flexDirection={["column", "column", "row-reverse"]}>
+            <Box ml={[2, 4, 300]} mt={[10, 15, 110]} display={"flex"} flexDirection={["column", "column", "row-reverse"]} alignItems={"center"}>
                 <Box>
                     <Flex flexDirection={['column', 'column', 'column']}>
                         <Box
@@ -124,20 +124,23 @@ const Home = () => {
                     </Button>
                 </Box>
 
-                <Box flexShrink={0} mb={[0, 0, 0]}>
+                <Box flexShrink={0} flexWrap={"wrap"}  mb={[0, 0, 0]} mr={[0,0, 0, "90px"]}  maxHeight={["auto","auto","60vh"]} width={["100%", "100%", 500, 650]}>
                     <img
                         src={burger}
                         alt="Burger"
-                        maxWidth={[100, 100, 100, 500]} // Adjust based on your design
-                        width="79%"
-                        maxHeight={["auto","auto","30vh"]}
+                        // Adjust based on your design
+
+
                         style={{
+                            flexShrink: 1,
                             transform: 'translateY(-50px)', // Default translateY value
-                            '@media screen and (min-width: 768px)': {
-                                transform: 'translateY(-100px)', // Adjust for larger screens
+                            '@media screen and (min-width: 768px) and (max-width: 1023px)': {
+                                width: '100%', // Set width to 100% on tablets
+                                transform: 'translateY(-100px)', // Adjust for tablets
                             },
                             '@media screen and (min-width: 1024px)': {
-                                transform: 'translateY(-150px)', // Adjust for even larger screens
+                                width: '80%', // Set width to 80% on desktop
+                                transform: 'translateY(-150px)', // Adjust for desktop screens
                             },
                         }}
                     />

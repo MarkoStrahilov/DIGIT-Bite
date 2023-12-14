@@ -6,7 +6,7 @@ const Contact = () => {
   return (
 
           <Box>
-              <Card />
+
           </Box>
 
   )

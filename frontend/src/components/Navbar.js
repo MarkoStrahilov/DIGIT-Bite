@@ -21,6 +21,7 @@ import {
     ChevronDownIcon,
     ChevronRightIcon,
 } from '@chakra-ui/icons';
+
 import logo from '../images/logo.png';
 import { useEffect, useState } from 'react';
 import { GlobalStyles } from '../constants/GlobalStyles';
@@ -34,7 +35,6 @@ export default function WithSubnavigation() {
     const logoStyles = {
         width: '100px',
         height: '100px',
-
     };
 
     const navigation = useNavigate()
@@ -64,7 +64,7 @@ export default function WithSubnavigation() {
             <Flex
                 bg={useColorModeValue('transparent', 'gray.600')}
                 color='#FF5C00'
-                fontSize={36.1}
+                fontSize={['sm', 'md', 'lg',"30px"]}
                 fontFamily={GlobalStyles.fonts.primary}
                 minH={'60px'}
                 py={{ base: 2 }}
@@ -85,7 +85,7 @@ export default function WithSubnavigation() {
                         aria-label={'Toggle Navigation'}
                     />
                 </Flex>
-                <Flex flex={{ base: 1 }} alignItems={'center'}>
+                <Flex flex={{ base: 1 }} alignItems={'center'} display={["none","none","none","flex","flex","flex"]}>
                     <Image style={logoStyles} src={logo} boxSize='100px' />
                     <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
                         <DesktopNav />
@@ -96,7 +96,7 @@ export default function WithSubnavigation() {
                     :
                     <Link to={'/login'}>
                         <Button
-                            display={{ base: 'none', md: 'inline-flex' }}
+                            display={["flex"]}
                             fontSize={'sm'}
                             fontWeight={600}
                             bg={GlobalStyles.colors.secondary}
@@ -132,7 +132,7 @@ const DesktopNav = () => {
                             <Link
                                 p={2}
                                 to={navItem.href ?? '#'}
-                                fontSize={30}
+                                fontSize={[30]}
                                 fontWeight={500}
                                 color={'white'}
                                 _hover={{
@@ -297,4 +297,5 @@ const NAV_ITEMS = [
         label: 'Cart',
         href: '/cart',
     },
+
 ];
