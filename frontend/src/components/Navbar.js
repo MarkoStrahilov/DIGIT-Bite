@@ -24,9 +24,11 @@ import logo from '../images/logo.png'
 
 import { Link, useNavigate } from 'react-router-dom';
 
-export default function WithSubnavigation() {
+export default function WithSubnavigation(user) {
 
     const { isOpen, onToggle } = useDisclosure();
+
+    console.log("wtih sub nav:", user)
 
     const logoStyles = {
         width: "30px",

@@ -1,21 +1,36 @@
-import React, {useState} from 'react';
-import {signInWithEmailAndPassword} from 'firebase/auth'
-import {auth} from '../../repository/firebase/firebase';
+import React, { useState } from 'react'
+import { auth } from '../../repository/firebase/firebase';
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 
 
-const SignIn = () => {
+const SignIn = (props) => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const navigate = useNavigate();
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                console.log(userCredential)
-            }).catch((err) => {
-                console.log(err)
+        // auth.signInWithEmailAndPassword(email, password)
+        //     .then((userCredential) => {
+        //         console.log(userCredential.user.uid)
+        //         fs.collection('users').doc(userCredential.user.uid)
+        //             .set({
+        //                 Email: email,
+        //                 Password: password
+        //             }).then(() => {
+        //                 navigate("/home");
+        //         })
+        //     }).catch((err) => {
+        //         console.log(err)
+        // })
+        auth.signInWithEmailAndPassword(email, password).then(() => {
+            // props.history.push("/");
+            navigate("/");
+        }).catch((err) => {
+            console.log(err);
         })
 
     }
