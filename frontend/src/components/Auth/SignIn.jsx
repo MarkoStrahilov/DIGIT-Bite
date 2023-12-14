@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
-import { auth } from '../../repository/firebase/firebase';
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom';
-
+import React, {useState} from 'react'
+import {auth} from '../../repository/firebase/firebase';
+import {Link} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const SignIn = (props) => {
@@ -13,26 +14,31 @@ const SignIn = (props) => {
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-        // auth.signInWithEmailAndPassword(email, password)
-        //     .then((userCredential) => {
-        //         console.log(userCredential.user.uid)
-        //         fs.collection('users').doc(userCredential.user.uid)
-        //             .set({
-        //                 Email: email,
-        //                 Password: password
-        //             }).then(() => {
-        //                 navigate("/home");
-        //         })
-        //     }).catch((err) => {
-        //         console.log(err)
-        // })
         auth.signInWithEmailAndPassword(email, password).then(() => {
-            // props.history.push("/");
+            toast.success('Successfully Logged In!', {
+                position: "top-right",
+                autoClose: 1500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
             navigate("/");
         }).catch((err) => {
             console.log(err);
+            toast.error('Incorrect email or password', {
+                    position: "top-right",
+                    autoClose: 1500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
         })
-
     }
 
     return (
@@ -44,20 +50,23 @@ const SignIn = (props) => {
                            type={"email"}
                            placeholder={"Enter your email"}
                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}/>
+                           required={true}
+                           onChange={(e) => setEmail(e.target.value)}/>
                 </div>
                 <div className={"form-group"}>
                     <input className={"form-control"}
                            type={"password"}
                            placeholder={"Enter your password"}
                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}/>
+                           required={true}
+                           onChange={(e) => setPassword(e.target.value)}/>
 
                 </div>
                 <div>
                     <button type={"submit"} className={"btn btn-primary"}>Sign in</button>
                 </div>
             </form>
+            {/*<ToastContainer/>*/}
         </div>
     );
 }

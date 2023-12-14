@@ -29,6 +29,9 @@ import { auth } from '../repository/firebase/firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import UserDetailss from './Auth/UserDetailss';
 import Drawer from './Drawer'
+import React from 'react';
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function WithSubnavigation() {
     const { isOpen, onToggle } = useDisclosure();
@@ -57,6 +60,16 @@ export default function WithSubnavigation() {
             .then(() => {
                 setLoading(true)
                 navigate("/")
+                toast.success('Successfully Logged out!', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
                 setLoading(false)
             })
     }
@@ -129,8 +142,9 @@ export default function WithSubnavigation() {
             <Collapse in={isOpen} animateOpacity>
                 <MobileNav />
             </Collapse>
+            <ToastContainer/>
         </Box>
-    );
+    )
 }
 
 
@@ -143,6 +157,7 @@ const DesktopNav = () => {
     return (
         <Stack direction={'row'} spacing={12}>
             {NAV_ITEMS.map((navItem) => (
+                console.log("navItem: ",navItem),
                 <Box key={navItem.label}>
                     <Popover trigger={'hover'} placement={'bottom-start'}>
                         <PopoverTrigger>
@@ -172,17 +187,22 @@ const DesktopNav = () => {
                                 minW={'sm'}
                             >
                                 <Stack>
-                                    {navItem && navItem.map((child) => {
-                                        {
-                                            child.showLink
-                                                ?
-                                                <DesktopSubNav key={child.label} {...child} />
-                                                :
+                                    {navItem.children &&
+                                    navItem.children.map((child) => (
+                                        <React.Fragment key={child.label}>
+                                            {child.showLink ? (
+                                                <DesktopSubNav {...child} />
+                                            ) : (
                                                 <Text py={2}>
-                                                    <Drawer />
+                                                    {child.label === 'Cart' ? (
+                                                        <Drawer />
+                                                    ) : (
+                                                        <Drawer />
+                                                    )}
                                                 </Text>
-                                        }
-                                    })}
+                                            )}
+                                        </React.Fragment>
+                                    ))}
                                 </Stack>
                             </PopoverContent>
                         )}
@@ -247,40 +267,38 @@ const MobileNav = () => {
 };
 
 const MobileNavItem = ({ label, children, href }) => {
-    const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
-    const [placement, setPlacement] = useState('right')
+    const { isOpen, onToggle } = useDisclosure();
 
     return (
-        <Stack spacing={4} onClick={children && onToggle}>
-            <Flex
-                py={2}
-                as={Link}
-                to={href ?? '#'}
-                justify={'space-between'}
-                align={'center'}
-                _hover={{
-                    textDecoration: 'none',
-                }}
-
-            >
-                <Text
-                    fontWeight={600}
-                    color={useColorModeValue('gray.600', 'gray.200')}
+        <Collapse in={isOpen} animateOpacity>
+            <Stack spacing={4}>
+                <Flex
+                    py={2}
+                    as={Link}
+                    to={href ?? '#'}
+                    justify={'space-between'}
+                    align={'center'}
+                    _hover={{
+                        textDecoration: 'none',
+                    }}
                 >
-                    {label}
-                </Text>
-                {children && (
-                    <Icon
-                        as={ChevronDownIcon}
-                        transition={'all .25s ease-in-out'}
-                        transform={isOpen ? 'rotate(180deg)' : ''}
-                        w={6}
-                        h={6}
-                    />
-                )}
-            </Flex>
+                    <Text
+                        fontWeight={600}
+                        color={useColorModeValue('gray.600', 'gray.200')}
+                    >
+                        {label}
+                    </Text>
+                    {children && (
+                        <Icon
+                            as={ChevronDownIcon}
+                            transition={'all .25s ease-in-out'}
+                            transform={isOpen ? 'rotate(180deg)' : ''}
+                            w={6}
+                            h={6}
+                        />
+                    )}
+                </Flex>
 
-            <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
                 <Stack
                     mt={2}
                     pl={4}
@@ -289,22 +307,21 @@ const MobileNavItem = ({ label, children, href }) => {
                     borderColor={useColorModeValue('gray.200', 'gray.700')}
                     align={'start'}
                 >
-                    {children && children.map((child) => {
-                        {
-                            child.showLink
-                                ?
-                                <Link key={child.label} py={2} to={child.href}>
-                                    {child.label}
-                                </Link>
-                                :
-                                <Text py={2}>
-                                    <Drawer />
-                                </Text>
-                        }
+                    {children &&
+                    children.map((child) => {
+                        return child.showLink ? (
+                            <Link key={child.label} py={2} to={child.href}>
+                                {child.label}
+                            </Link>
+                        ) : (
+                            <Text py={2}>
+                                {child.label === 'Cart' ? <Drawer /> : <Drawer />}
+                            </Text>
+                        );
                     })}
                 </Stack>
-            </Collapse>
-        </Stack>
+            </Stack>
+        </Collapse>
     );
 };
 
@@ -328,5 +345,10 @@ const NAV_ITEMS = [
         label: 'About',
         href: '/about-us',
         showLink: true
+    },
+    {
+        label: 'Cart',
+        href: '',
+        showLink: false
     }
 ];

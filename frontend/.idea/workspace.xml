@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="275a4215-8cf3-4280-bee7-b85c59a33719" name="Changes" comment="1 mesto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Drawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Drawer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignIn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignIn.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignUp.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702564069573</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added delete button for deleting items from the shopping cart">
+      <created>1702566924712</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1702566924712</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,6 +243,7 @@
     <MESSAGE value="finished the authentication management" />
     <MESSAGE value="adding products to shopping cart" />
     <MESSAGE value="1 mesto" />
-    <option name="LAST_COMMIT_MESSAGE" value="1 mesto" />
+    <MESSAGE value="added delete button for deleting items from the shopping cart" />
+    <option name="LAST_COMMIT_MESSAGE" value="added delete button for deleting items from the shopping cart" />
   </component>
 </project>
