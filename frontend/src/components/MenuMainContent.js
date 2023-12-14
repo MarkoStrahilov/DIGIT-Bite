@@ -1,28 +1,47 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import DIGITBiteService from '../repository/digitBiteRepository'
 import { Box, Text } from '@chakra-ui/react'
 import { useParams } from 'react-router-dom'
+import Category from './Category'
+import Loading from './Loading'
 
 const MenuMainContent = () => {
 
+    const [loading, setLoading] = useState(true)
     const categoryName = useParams()
-    const [data,setData] = useState({})
+    const [data, setData] = useState([])
 
     useEffect(() => {
-        DIGITBiteService.fetchItemsByCategory(categoryName)
-            .then((data) => {
-                console.log(data)
-                setData(data.data.meals)
-            })
-    })
 
-    console.log(data)
+        const fetchData = async () => {
+            try {
+                const result = await DIGITBiteService?.fetchItemsByCategory(categoryName?.categoryName);
+                const fetchedData = result?.data?.meals;
+                const limitedData = fetchedData.slice(0, 12);
+                setData(limitedData);
+                setLoading(false)
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
 
-    return (
-        <Box border={'1px solid black'} w={"50%"}>
-            <Text>{categoryName?.categoryName}</Text>
-        </Box>
-    )
+        fetchData()
+
+    }, [categoryName?.categoryName])
+
+    if (data?.length === 0) {
+        return <Text>Hello There Please select your menu</Text>
+    } else if (loading) {
+        return <Loading />
+    } else {
+        return (
+            <Box border={'1px solid black'}>
+                {data ? <Category data={data} /> : null}
+            </Box>
+        )
+    }
+
+
 }
 
 export default MenuMainContent

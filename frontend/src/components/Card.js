@@ -1,32 +1,59 @@
-import { Box, Image, Badge ,CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
+import { Box, Image, Badge, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
 import { FaStar } from "react-icons/fa";
+import {GlobalStyles} from '../constants/GlobalStyles'
 import '../Fonts/fonts.css'
-function Card() {
-    const property = {
-        imageUrl: 'https://bit.ly/2Z4KKcF',
-        imageAlt: 'Rear view of modern home with pool',
+function Card({ data }) {
+
+    const rand = Math.floor(Math.random() * (130 - 10 + 1)) + 10;
+
+
+    const mealItem = {
+        imageUrl: data.strMealThumb,
+        imageAlt: 'Meal Item',
         beds: 3,
         baths: 2,
-        title: 'Digit Burger',
-        formattedPrice: '$1,900.00',
-        reviewCount: 34,
-        rating: 4,
+        title: data?.strMeal,
+        formattedPrice: Math.floor(Math.random() * (130 - 10 + 1)) + 10,
+        reviewCount: Math.floor(Math.random() * (15 - 1 + 1)) + 1,
+        rating: Math.floor(Math.random() * (5 - 1 + 1)) + 1,
+        isNew: rand % 2 === 0 ? true : false
     }
 
+    console.log(mealItem?.isNew)
+
     return (
-        <Box maxW='sm' borderWidth='2px' borderRadius='lg' overflow='hidden'>
-            <Image src={property.imageUrl} alt={property.imageAlt} />
+        <Box maxW={'230px'}
+            borderWidth='2px'
+            borderRadius='lg'
+            overflow='hidden'
+            m={1}
+        >
+            <Image src={mealItem.imageUrl} alt={mealItem.imageAlt} />
 
             <Box p='6'>
                 <Box display='flex' alignItems='baseline'>
-                    <Badge
-                        borderRadius='full'
-                        px='2'
-                        color='white'
-                        backgroundColor='#ED2939'>
-
-                        New
-                    </Badge>
+                    {mealItem.isNew ?
+                        <Badge
+                            borderRadius='full'
+                            px='2'
+                            color='white'
+                            backgroundColor={GlobalStyles.colors.secondary}
+                            textAlign={'center'}
+                            fontSize={'10px'}
+                        >
+                            New
+                        </Badge> :
+                        <Badge
+                            borderRadius='full'
+                            px='2'
+                            color='white'
+                            backgroundColor='lightGreen'
+                            textAlign={'center'}
+                            fontSize={'10px'}
+                        >
+                            Available
+                        </Badge>
+                    }
                     <Box
                         color='gray'
                         fontWeight='semibold'
@@ -35,7 +62,7 @@ function Card() {
                         textTransform='uppercase'
                         ml='2'
                     >
-                        {property.beds} Serving size &bull; {property.baths} Ingredients
+                        {mealItem.beds} Serving size &bull; {mealItem.baths} Ingredients
                     </Box>
                 </Box>
 
@@ -43,17 +70,18 @@ function Card() {
                     mt='1'
                     fontFamily='Studly'
                     color='black'
-                    fontSize='26px'
+                    fontSize='15px'
                     as='h4'
                     lineHeight='tight'
                     noOfLines={1}
                     letterSpacing='0.3px'
+                    font
                 >
-                    {property.title}
+                    {mealItem.title}
                 </Box>
 
                 <Box>
-                    {property.formattedPrice}
+                    ${mealItem.formattedPrice}
                     <Box as='span' color='gray.600' fontSize='sm'>
 
                     </Box>
@@ -65,11 +93,11 @@ function Card() {
                         .map((_, i) => (
                             <FaStar
                                 key={i}
-                                color={i < property.rating ? '#FFDF00' : 'gray.300'}
+                                color={i < mealItem.rating ? '#FFDF00' : 'gray.300'}
                             />
                         ))}
                     <Box as='span' ml='2' color='#ED2939' fontSize='sm' fontWeight='bold'>
-                        {property.reviewCount} reviews
+                        {mealItem.reviewCount} reviews
                     </Box>
                 </Box>
             </Box>

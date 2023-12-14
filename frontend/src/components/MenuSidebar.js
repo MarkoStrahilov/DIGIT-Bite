@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const MenuSidebar = ({ data }) => {
 
     return (
-        <Box border={'1px solid black'} w={"50%"}>
+        <Box border={'1px solid black'} minW={"25%"} mr={20}>
             {data.map(element => (
                 <Link key={element.idCategory} to={`category/${element?.strCategory}`}>
                     <Text border={'1px solid black'} p={2} mb={3}>{element?.strCategory}</Text>
