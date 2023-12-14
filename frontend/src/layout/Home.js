@@ -124,7 +124,7 @@ const Home = () => {
                         <Button color={'white'} mt={6} pl={"48px"} pr={"48px"} pb={6} pt={6} mb={"40px"} borderRadius={30} bg={GlobalStyles.colors.secondary} fontSize={'25px'} fontFamily={"Studly"}>
                             TRY IT
                         </Button>
-                        <Drawer data={user ? user : null}/>
+                        <Drawer />
                     </Flex>
                 </Box>
 

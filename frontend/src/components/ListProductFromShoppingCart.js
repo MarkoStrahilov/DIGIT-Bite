@@ -12,14 +12,14 @@ const ListProductFromShoppingCart = () => {
         const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 setUserUid(user.uid);
-                console.log('This is the user: ', user.uid);
+                // console.log('This is the user: ', user.uid);
 
                 // Ensure the user is authenticated before fetching cart items
                 fetchCartProducts(user.uid);
             } else {
                 // No user is signed in.
                 setUserUid(null);
-                console.log('There is no logged in user');
+                console.log('There is no logged in user in list product from shopping cart');
             }
         });
 
@@ -33,9 +33,9 @@ const ListProductFromShoppingCart = () => {
                 mealId: doc.id,
                 ...doc.data(),
             }));
-            console.log('snapshot', snapshot.docs);
+            // console.log('snapshot', snapshot.docs);
             setCartProducts(newCartProduct);
-            console.log('new cart product', newCartProduct);
+            // console.log('new cart product in list', newCartProduct);
         });
     };
 

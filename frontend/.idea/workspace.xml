@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="275a4215-8cf3-4280-bee7-b85c59a33719" name="Changes" comment="adding products to shopping cart">
+    <list default="true" id="275a4215-8cf3-4280-bee7-b85c59a33719" name="Changes" comment="1 mesto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Drawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Drawer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/About.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ListProductFromShoppingCart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListProductFromShoppingCart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layout/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/Home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -186,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702555059871</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="1 mesto">
+      <created>1702564069573</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1702564069573</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +230,7 @@
     <MESSAGE value="added authentication login for firebase" />
     <MESSAGE value="finished the authentication management" />
     <MESSAGE value="adding products to shopping cart" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding products to shopping cart" />
+    <MESSAGE value="1 mesto" />
+    <option name="LAST_COMMIT_MESSAGE" value="1 mesto" />
   </component>
 </project>
