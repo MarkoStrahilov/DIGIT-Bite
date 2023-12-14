@@ -2,6 +2,8 @@ import { Button, Box, Image, Badge, CardHeader, CardBody, CardFooter } from '@ch
 import { FaStar } from "react-icons/fa";
 import { GlobalStyles } from '../constants/GlobalStyles'
 import '../Fonts/fonts.css'
+import Drawer from './Drawer'
+
 function Card({ data, addToCart }) {
 
     const getRandomNumberFunc = (max, min) => {
