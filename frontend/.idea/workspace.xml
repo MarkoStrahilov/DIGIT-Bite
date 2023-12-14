@@ -4,8 +4,6 @@
     <list default="true" id="275a4215-8cf3-4280-bee7-b85c59a33719" name="Changes" comment="1 mesto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Drawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Drawer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ListProductFromShoppingCart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListProductFromShoppingCart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/Home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +63,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -109,6 +108,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.D:/Netaville-DIGIT/DIGIT-Bite/frontend" />
         <item itemvalue="Gradle.D:/Netaville-DIGIT/DIGIT-Bite/frontend" />
         <item itemvalue="Gradle.D:/Netaville-DIGIT/DIGIT-Bite/frontend" />
       </list>
