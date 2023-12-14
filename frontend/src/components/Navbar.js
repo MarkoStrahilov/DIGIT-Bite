@@ -100,7 +100,7 @@ export default function WithSubnavigation() {
                         aria-label={'Toggle Navigation'}
                     />
                 </Flex>
-                <Flex flex={{ base: 1 }} alignItems={'center'}>
+                <Flex flex={{ base: 1 }} alignItems={'center'} display={["none","none","none","flex","flex","flex"]}>
                     <Image style={logoStyles} src={logo} boxSize='100px' />
                     <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
                         <DesktopNav />
@@ -111,7 +111,7 @@ export default function WithSubnavigation() {
                     :
                     <Link to={'/login'}>
                         <Button
-                            display={{ base: 'none', md: 'inline-flex' }}
+                            display={["flex"]}
                             fontSize={'sm'}
                             fontWeight={600}
                             bg={GlobalStyles.colors.secondary}
