@@ -52,7 +52,6 @@ const MenuDrawer = ({ menu, handleOnClose, handleOnOpen }) => {
 
     }, [menu])
 
-    
     let Product;
     const addToCart = async (product, quantity) => {
         if (userUid !== null) {
