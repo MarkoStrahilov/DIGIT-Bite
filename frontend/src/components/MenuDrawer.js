@@ -54,22 +54,39 @@ const MenuDrawer = ({ menu, handleOnClose, handleOnOpen }) => {
 
     
     let Product;
-    const addToCart = (product, quantity) => {
-        if(userUid !== null) {
-            console.log("product in category and not null", product);
-            Product = product;
-            Product['quantity'] = quantity ? quantity : 1;
-            Product['TotalProductPrice'] = Product.quantity*Product.formattedPrice;
-            db.collection('Cart ' + userUid).doc(product.mealId).set(Product)
-                .then(() => {
-                    console.log(`added to cart baby !n and the product id is: ${product.mealId} `)
-                }).catch((err) => {
-                console.log(err);
-            });
+    const addToCart = async (product, quantity) => {
+        if (userUid !== null) {
+            try {
+                // Check if the product is already in the cart
+                const cartProductDoc = db.collection('Cart ' + userUid).doc(product.mealId);
+                const cartProductSnapshot = await cartProductDoc.get();
+
+                if (cartProductSnapshot.exists) {
+                    // Product exists in the cart, update the quantity
+                    const existingProductData = cartProductSnapshot.data();
+                    const updatedQuantity = existingProductData.quantity + quantity;
+                    await cartProductDoc.update({
+                        quantity: updatedQuantity,
+                        TotalProductPrice: updatedQuantity * product.formattedPrice,
+                    });
+
+                    console.log(`Quantity updated for product id: ${product.mealId}`);
+                } else {
+                    // Product doesn't exist in the cart, add a new entry
+                    Product = product;
+                    Product['quantity'] = quantity || 1;
+                    Product['TotalProductPrice'] = Product.quantity * Product.formattedPrice;
+                    await db.collection('Cart ' + userUid).doc(product.mealId).set(Product);
+
+                    console.log(`Added to cart, product id: ${product.mealId}`);
+                }
+            } catch (error) {
+                console.error('Error updating/adding to cart:', error);
+            }
         } else {
-            navigate("/login");
+            navigate('/login');
         }
-    }
+    };
 
     return (
         <>

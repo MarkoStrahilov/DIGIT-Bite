@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="275a4215-8cf3-4280-bee7-b85c59a33719" name="Changes" comment="1 mesto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Category.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Category.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Drawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Drawer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MenuDrawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuDrawer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PopModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopModal.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +201,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702566924712</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added increment and decrement button for quantity for particular product - finished">
+      <created>1702636315432</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1702636315432</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,6 +248,7 @@
     <MESSAGE value="adding products to shopping cart" />
     <MESSAGE value="1 mesto" />
     <MESSAGE value="added delete button for deleting items from the shopping cart" />
-    <option name="LAST_COMMIT_MESSAGE" value="added delete button for deleting items from the shopping cart" />
+    <MESSAGE value="added increment and decrement button for quantity for particular product - finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="added increment and decrement button for quantity for particular product - finished" />
   </component>
 </project>
