@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar'
-import {Flex} from "@chakra-ui/react";
-import {Box, Text} from '@chakra-ui/react'
-import {auth, db, storage} from '../repository/firebase/firebase';
-
+import { Flex } from "@chakra-ui/react";
+import { Box, Text } from '@chakra-ui/react'
+import { auth, db, storage } from '../repository/firebase/firebase';
+import { MdRemoveShoppingCart } from "react-icons/md";
+import { FaShoppingCart } from "react-icons/fa";
+import Checkout from './Checkout';
 import {
     Button,
     DrawerBody,
@@ -17,13 +19,12 @@ import {
     useDisclosure,
     IconButton
 } from "@chakra-ui/react";
-import {FaShoppingCart} from "react-icons/fa";
-import {GlobalStyles} from '../constants/GlobalStyles';
+import { GlobalStyles } from '../constants/GlobalStyles';
 import firebase from "firebase";
 
 
 const SideDrawer = () => {
-    const {isOpen, onOpen, onClose} = useDisclosure()
+    const { isOpen, onOpen, onClose } = useDisclosure()
     const [placement, setPlacement] = useState('right')
 
 
@@ -84,6 +85,11 @@ const SideDrawer = () => {
         return total;
     };
 
+    const handleOrder = () => [
+        setCartProducts([])
+        
+    ]
+
 
     return (
         <>
@@ -98,17 +104,23 @@ const SideDrawer = () => {
                 p={25}
                 mt={"25px"}
                 ml={10}
-                icon={<FaShoppingCart/>}
+                icon={<FaShoppingCart />}
             />
             <Drawer placement={placement} size={'xl'} onClose={onClose} isOpen={isOpen}>
                 <DrawerOverlay />
                 <DrawerContent>
-                    <DrawerHeader borderBottomWidth='1px'>Basic Drawer</DrawerHeader>
+                    <DrawerHeader borderBottomWidth='1px' display={'flex'} flexDirection={'row'} alignItems={'center'}>
+                        <FaShoppingCart size={30} color={GlobalStyles.colors.secondary} />
+                        <Text ml={3} fontFamily={GlobalStyles.fonts.secondary} fontSize={25}>Checkout</Text>
+                    </DrawerHeader>
                     <DrawerBody>
                         {cartProducts.length === 0 ? (
-                            <Text textAlign='center' fontSize='1.5em'>
-                                Your shopping cart is empty.
-                            </Text>
+                            <Box display={'flex'} alignItems={'center'} justifyContent={'center'} flexDirection={'column'}>
+                                <MdRemoveShoppingCart size={100} color={GlobalStyles.colors.secondary} />
+                                <Text fontFamily={GlobalStyles.fonts.secondary} textAlign='center' fontSize='1.5em'>
+                                    Your shopping cart is empty.
+                                </Text>
+                            </Box>
                         ) : (
                             <>
                                 {cartProducts.map((product) => {
@@ -116,30 +128,17 @@ const SideDrawer = () => {
                                     const discountedPrice = product.isNew ? basePrice * 0.9 : basePrice;
                                     const totalForProduct = discountedPrice * product.quantity;
 
-                                    return (
-                                        <Flex key={product.mealId} alignItems='center' justify='space-between'>
-                                            <Text flex='1' marginRight='2' fontSize='1.5em'>
-                        <span role='img' aria-label='dot' style={{ marginRight: '5px' }}>
-                          &#183;
-                        </span>
-                                                {product.title} - ${discountedPrice.toFixed(2)} (x {product.quantity}) = ${totalForProduct.toFixed(2)}
-                                                {product.isNew && <span> (10% off)</span>}
-                                            </Text>
+                                    const info = { basePrice, discountedPrice, totalForProduct }
 
-                                            <Button
-                                                width='80px'
-                                                colorScheme='red'
-                                                size='sm'
-                                                onClick={() => handleDeleteProduct(product.mealId)}
-                                            >
-                                                Delete
-                                            </Button>
-                                        </Flex>
+                                    return (
+                                        <>
+                                            <Checkout product={product} checkoutDetails={info} handleDelete={handleDeleteProduct}/>
+                                        </>
                                     );
                                 })}
-
                                 <Flex alignItems='center' justify='flex-end' marginTop='2'>
-                                    <Text fontSize='1.2em'>Total Price: ${calculateTotalPrice().toFixed(2)}</Text>
+                                    <Text fontFamily={GlobalStyles.fonts.secondary} fontSize='1.2em'>Total Price: ${calculateTotalPrice().toFixed(2)}</Text>
+                                    <Button ml={3} onClick={handleOrder}>Order Now</Button>
                                 </Flex>
                             </>
                         )}

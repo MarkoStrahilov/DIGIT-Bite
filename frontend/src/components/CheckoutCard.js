@@ -1,28 +1,25 @@
-import { useRef } from 'react'
-import { Button, Box, Image, Badge, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Text } from '@chakra-ui/react'
+import React from 'react'
+import {
+    Button,
+    Image,
+    Badge,
+    Box
+} from "@chakra-ui/react";
 import { FaStar } from "react-icons/fa";
-import { GlobalStyles } from '../constants/GlobalStyles'
-import '../Fonts/fonts.css'
-import PopModal from './PopModal'
+import { GlobalStyles } from '../constants/GlobalStyles';
 
-function Card({ data, addToCart, size }) {
+const CheckoutCard = ({ data, handleDelete, size }) => {
 
-    const getRandomNumberFunc = (max, min) => {
-        const rand = Math.floor(Math.random() * (max - min + 1)) + min;
-        return rand
-    }
-    
     const mealItem = {
-        mealId: data?.idMeal,
-        imageUrl: data?.strMealThumb,
-        imageAlt: 'Meal Item',
-        beds: getRandomNumberFunc(2, 6),
-        baths: getRandomNumberFunc(2, 10),
-        title: data?.strMeal,
-        formattedPrice: getRandomNumberFunc(45, 10),
-        reviewCount: getRandomNumberFunc(15, 1),
-        rating: getRandomNumberFunc(5, 1),
-        isNew: getRandomNumberFunc(15, 1) % 2 === 0 ? true : false
+        mealId: data?.mealId,
+        imageUrl: data?.imageUrl,
+        rating: data?.rating,
+        isNew: data?.isNew,
+        reviewCount: data?.reviewCount,
+        beds: data?.beds,
+        baths: data?.baths,
+        formattedPrice: data?.formattedPrice,
+        title: data?.title
     }
 
     return (
@@ -74,7 +71,6 @@ function Card({ data, addToCart, size }) {
                 >
                     {mealItem.title}
                 </Box>
-
                 <Box>
                     ${mealItem.formattedPrice}
                     <Box as='span' color='gray.600' fontSize='sm'>
@@ -96,10 +92,17 @@ function Card({ data, addToCart, size }) {
                     </Box>
                 </Box>
             </Box>
-            
-            <PopModal mealItem={mealItem} addToCart={addToCart}/>
-        </Box> 
+
+            <Button
+                width='80px'
+                colorScheme='red'
+                size='sm'
+                onClick={() => handleDelete(mealItem.mealId)}
+            >
+                Delete
+            </Button>
+        </Box>
     )
 }
 
-export default Card;
+export default CheckoutCard

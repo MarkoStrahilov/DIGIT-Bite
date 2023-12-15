@@ -35,15 +35,15 @@ function PopModal({ addToCart, mealItem }) {
         <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader mt={2}>Add your <b>{mealItem?.title}</b> to the cart</ModalHeader>
+            <ModalHeader fontFamily={GlobalStyles.fonts.secondary} mt={2}>Add your <b>{mealItem?.title}</b> to the cart</ModalHeader>
             <ModalCloseButton />
             <ModalBody display={'flex'} alignItems={'center'} justifyContent={'center'} flexDirection={'column'}>
               <FaCartPlus size={100} color={GlobalStyles.colors.secondary} />
-              <Text mt={7}>
+              <Text mt={7} fontFamily={GlobalStyles.fonts.secondary}>
                 Thank you for choosing DIGIT Bite Burger! We're excited to process your order. To ensure accuracy and finalize your purchase, we kindly ask you to click the 'Confirm' button below. Your satisfaction is our priority, and we appreciate your trust in us.
               </Text>
               <Flex alignItems='center' justify='space-between' mt={4}>
-                <Text>Quantity:</Text>
+                <Text mr={3} fontFamily={GlobalStyles.fonts.secondary}>Quantity:</Text>
                 <Flex>
                   <Button size='sm' onClick={handleDecreaseQuantity}>
                     -
