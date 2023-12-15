@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="275a4215-8cf3-4280-bee7-b85c59a33719" name="Changes" comment="small type fix in for the drawer size">
+    <list default="true" id="275a4215-8cf3-4280-bee7-b85c59a33719" name="Changes" comment="1 mesto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/AuthDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/AuthDetails.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PopModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopModal.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="login-logout-register-alerts" />
+        <entry key="$PROJECT_DIR$/.." value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -109,6 +108,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.D:/Netaville-DIGIT/DIGIT-Bite/frontend" />
         <item itemvalue="Gradle.D:/Netaville-DIGIT/DIGIT-Bite/frontend" />
         <item itemvalue="Gradle.D:/Netaville-DIGIT/DIGIT-Bite/frontend" />
         <item itemvalue="Gradle.D:/Netaville-DIGIT/DIGIT-Bite/frontend" />
