@@ -90,7 +90,7 @@ const SideDrawer = () => {
                 ml={10}
                 icon={<FaShoppingCart/>}
             />
-            <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
+            <Drawer placement={placement} size={"xlc"} onClose={onClose} isOpen={isOpen}>
                 <DrawerOverlay/>
                 <DrawerContent>
                     <DrawerHeader borderBottomWidth='1px'>Basic Drawer</DrawerHeader>
