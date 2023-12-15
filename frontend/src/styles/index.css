@@ -40,4 +40,23 @@ h1, p {
   .deg225 { transform: rotate(225deg) translate(200px) rotate(-225deg); }
   .deg270 { transform: rotate(270deg) translate(200px) rotate(90deg); }
   .deg315 { transform: rotate(315deg) translate(200px) rotate(-315deg); }
+
+/* Add these styles to your global stylesheet or component-specific stylesheet */
+
+/* Define a transition for the opacity property */
+.fade-in-out {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Set opacity to 0 when the component is exiting */
+.fade-in-out-exit {
+  opacity: 0;
+}
+
+/* Add this class when the component is entering */
+.fade-in-out-enter {
+  opacity: 0;
+}
+
   

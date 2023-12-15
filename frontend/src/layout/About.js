@@ -11,8 +11,11 @@ import firebase from 'firebase/app';
 import { useNavigate } from 'react-router-dom';
 import SideDrawer from "../components/Drawer";
 import Navbar from "../components/Navbar";
-import chef from '../images/chef.png'
+import chef from '../images/chef.gif'
 import burger from "../images/contactBurger.png";
+import {Link} from "react-router-dom";
+import ReactPlayer from 'react-player';
+import chef2 from '../images/chef2.mp4'
 
 
 
@@ -83,22 +86,16 @@ const About = (item) => {
                 maxH={'90vh'}
             >
                 <Box
-                    
-                    width={['100%', '100%', '50%']}
+                    border={"transparent"}
+                    width={['100%', '100%', '65.6%']}
                     height={['45vh', '45vh', 'auto']}
                     display={'flex'}
                     justifyContent={'center'}
                     alignItems={'center'}
+
                 >
-                    <Image
-                        src={chef}
-                        alt={'Chef'}
-                        objectFit={"contain"}
-                        height={['auto', 'auto', '100%']}
-                        maxHeight={["45vh","45vh","100vh"]}
+                    <ReactPlayer  url={chef2} loop muted playing={true} height={['auto', 'auto', '40vh']}  maxHeight={["45vh","45vh","100vh"]} width={["auto","auto", "650px"]}  />
 
-
-                    />
                 </Box>
                 <Box width={['100%', '100%', '50%']} height={['45vh', '45vh', 'auto']}>
                     <Box display={'flex'} flexDir={'column'} justifyContent={'center'} p={[4, 6, 8]}>
@@ -111,9 +108,12 @@ const About = (item) => {
                         <Text color={'white'} fontSize={['14.5px', '16px', '18px', '22px']} mb={4} fontFamily={"Montserrat"}>
                             Digit Bite: Where every tap bites into a world of flavors! Explore diverse dishes in our wide range menu. Whether you’re craving comfort or culinary adventures, Digit Bite ensures that great food is just a tap away – making your dining journey convenient, enjoyable, and delicious.
                         </Text>
-                        <Button color={'white'} width={["200px"]} mt={6} pl={"48px"} pr={"48px"} pb={6} pt={6} mb={"40px"} borderRadius={30} bg={GlobalStyles.colors.secondary} fontSize={'25px'} fontFamily={"Studly"}>
+
+                        <Link to={"/menu"}>
+                        <Button color={'white'} width={["200px"]} mt={6} pl={"48px"} pr={"48px"} pb={6} pt={6} mb={"40px"} borderRadius={30} bg={GlobalStyles.colors.secondary} fontSize={'25px'} fontFamily={"Studly"} >
                             OUR MENU
                         </Button>
+                        </Link>
                     </Box>
                 </Box>
             </Flex>

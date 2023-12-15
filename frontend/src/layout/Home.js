@@ -10,6 +10,7 @@ import { auth, db } from '../repository/firebase/firebase';
 import firebase from 'firebase/app';
 import burger from '../images/burger.png'
 import Drawer from "../components/Drawer";
+import {Link} from "react-router-dom";
 const Home = () => {
 
     const [user, setUser] = useState(null);
@@ -121,9 +122,11 @@ const Home = () => {
                         Gratification and Instant Flavorful Bliss!"
                     </Text>
                     <Flex>
+                        <Link to={"/menu"}>
                         <Button color={'white'} mt={6} pl={"48px"} pr={"48px"} pb={6} pt={6} mb={"40px"} borderRadius={30} bg={GlobalStyles.colors.secondary} fontSize={'25px'} fontFamily={"Studly"}>
                             TRY IT
                         </Button>
+                        </Link>
                         <Drawer />
                     </Flex>
                 </Box>
