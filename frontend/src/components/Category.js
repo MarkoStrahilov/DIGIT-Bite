@@ -27,21 +27,52 @@ const Category = ({ data }) => {
 
     let Product;
     const addToCart = (product) => {
-        if(userUid !== null) {
+        if (userUid !== null) {
             console.log("product in category and not null", product);
             Product = product;
-            Product['quantity'] = 1;
-            Product['TotalProductPrice'] = Product.quantity*Product.formattedPrice;
-            db.collection('Cart ' + userUid).doc(product.mealId).set(Product)
-                .then(() => {
-                    console.log(`added to cart baby !n and the product id is: ${product.mealId} `)
-                }).catch((err) => {
-                console.log(err);
-            });
+            Product['quantity'] = product.quantity || 1; // Default to 1 if quantity is not provided
+            Product['totalProductPrice'] = Product.quantity * Product.formattedPrice;
+
+            const cartProductRef = db.collection('Cart ' + userUid).doc(product.mealId);
+
+            cartProductRef.get()
+                .then((docSnapshot) => {
+                    if (docSnapshot.exists) {
+                        // Update existing cart item
+                        cartProductRef.update({
+                            quantity: firebase.firestore.FieldValue.increment(Product.quantity),
+                            totalProductPrice: firebase.firestore.FieldValue.increment(Product.totalProductPrice),
+                        }).then(() => {
+                            console.log(`Updated cart item with ID: ${product.mealId}`);
+                        }).catch((error) => {
+                            console.error('Error updating cart item:', error);
+                        });
+                    } else {
+                        // Add new cart item
+                        cartProductRef.set(Product)
+                            .then(() => {
+                                console.log(`Added to cart baby! Product ID: ${product.mealId}`);
+                            })
+                            .catch((err) => {
+                                console.error('Error adding to cart:', err);
+                            });
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error checking if cart item exists:', error);
+                });
         } else {
             navigate("/login");
         }
-    }
+    };
+
+    return (
+        <Box display={"flex"} flexWrap={"wrap"} justify={{ base: 'center', md: 'center' }} justifyContent={'space-evenly'}>
+            {data && data?.map(elm => {
+                return <Card data={elm} addToCart={addToCart} />
+            })}
+        </Box>
+    );
 
 
 

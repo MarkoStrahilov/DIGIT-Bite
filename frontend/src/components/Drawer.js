@@ -74,6 +74,16 @@ const SideDrawer = () => {
             });
     }
 
+    const calculateTotalPrice = () => {
+        const total = cartProducts.reduce((acc, product) => {
+            const basePrice = product.formattedPrice;
+            const discountedPrice = product.isNew ? basePrice * 0.9 : basePrice;
+            return acc + discountedPrice;
+        }, 0);
+
+        return total;
+    };
+
 
     return (
         <>
@@ -92,30 +102,48 @@ const SideDrawer = () => {
             />
             <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
                 <DrawerOverlay/>
-                <DrawerContent>
-                    <DrawerHeader borderBottomWidth='1px'>Basic Drawer</DrawerHeader>
+                <DrawerContent size="lg">
+                    <DrawerHeader borderBottomWidth='1px'>Shopping Cart!</DrawerHeader>
                     <DrawerBody>
-                        {cartProducts.map(product => (
-                            <Flex key={product.mealId} alignItems="center" justify="space-between">
-                                <Text flex="1" marginRight="2" fontSize="1.5em">
-                                    <span role="img" aria-label="dot" style={{ marginRight: '5px' }}>
-                                        &#183;
-                                    </span>
-                                    {product.title}
-                                </Text>
+                        {cartProducts.length === 0 ? (
+                            <Text textAlign="center" fontSize="1.5em">
+                                Your shopping cart is empty.
+                            </Text>
+                        ) : (
+                            <>
+                                {cartProducts.map(product => {
+                                    const basePrice = product.formattedPrice;
+                                    const discountedPrice = product.isNew ? basePrice * 0.9 : basePrice;
 
+                                    return (
+                                        <Flex key={product.mealId} alignItems="center" justify="space-between">
+                                            <Text flex="1" marginRight="2" fontSize="1.5em">
+                            <span role="img" aria-label="dot" style={{ marginRight: '5px' }}>
+                                &#183;
+                            </span>
+                                                {product.title} - ${discountedPrice.toFixed(2)}
+                                                {product.isNew && <span> (10% off)</span>}
+                                            </Text>
 
-                                <Button
-                                    width="80px"  // Adjust the width as needed
-                                    colorScheme="red"
-                                    size="sm"
-                                    onClick={() => handleDeleteProduct(product.mealId)}
-                                >
-                                    Delete
-                                </Button>
-                            </Flex>
-                        ))}
+                                            <Button
+                                                width="80px"
+                                                colorScheme="red"
+                                                size="sm"
+                                                onClick={() => handleDeleteProduct(product.mealId)}
+                                            >
+                                                Delete
+                                            </Button>
+                                        </Flex>
+                                    );
+                                })}
+
+                                <Flex alignItems="center" justify="flex-end" marginTop="2">
+                                    <Text fontSize="1.2em">Total Price: ${calculateTotalPrice().toFixed(2)}</Text>
+                                </Flex>
+                            </>
+                        )}
                     </DrawerBody>
+
 
                 </DrawerContent>
             </Drawer>
