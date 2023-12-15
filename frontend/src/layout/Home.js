@@ -11,6 +11,7 @@ import firebase from 'firebase/app';
 import { useNavigate } from 'react-router-dom';
 import burger from '../images/burger.png'
 import Drawer from "../components/Drawer";
+import {Link} from "react-router-dom";
 const Home = () => {
 
     const [user, setUser] = useState(null);
@@ -127,6 +128,7 @@ const Home = () => {
                         Gratification and Instant Flavorful Bliss!"
                     </Text>
                     <Flex>
+<<<<<<< HEAD
                         <Button
                             color={'white'}
                             mt={6}
@@ -141,8 +143,13 @@ const Home = () => {
                             fontFamily={'Studly'}
                             onClick={handleTryItClick}
                         >
+=======
+                        <Link to={"/menu"}>
+                        <Button color={'white'} mt={6} pl={"48px"} pr={"48px"} pb={6} pt={6} mb={"40px"} borderRadius={30} bg={GlobalStyles.colors.secondary} fontSize={'25px'} fontFamily={"Studly"}>
+>>>>>>> not-found-page
                             TRY IT
                         </Button>
+                        </Link>
                         <Drawer />
                     </Flex>
                 </Box>

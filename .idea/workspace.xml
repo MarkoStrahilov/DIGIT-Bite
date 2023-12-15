@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0066ecec-2c33-4fa1-a842-93eafa96497f" name="Changes" comment="other files">
+    <list default="true" id="0066ecec-2c33-4fa1-a842-93eafa96497f" name="Changes" comment="404 Not found Page, About Page, Fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/images/burger.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/images/burger.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/layout/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/layout/About.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +15,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -95,7 +93,9 @@
       <workItem from="1702543638834" duration="4165000" />
       <workItem from="1702548591405" duration="18684000" />
       <workItem from="1702589961719" duration="10436000" />
-      <workItem from="1702629605437" duration="435000" />
+      <workItem from="1702629605437" duration="8274000" />
+      <workItem from="1702642086937" duration="2981000" />
+      <workItem from="1702645113817" duration="2582000" />
     </task>
     <task id="LOCAL-00001" summary="made UI cards">
       <option name="closed" value="true" />
@@ -113,7 +113,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702396148311</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Making about page">
+      <option name="closed" value="true" />
+      <created>1702630119168</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1702630119168</updated>
+    </task>
+    <task id="LOCAL-00004" summary="404 Not found Page, About Page, Fixes">
+      <option name="closed" value="true" />
+      <created>1702647036707</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702647036707</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +149,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="made UI cards" />
     <MESSAGE value="other files" />
-    <option name="LAST_COMMIT_MESSAGE" value="other files" />
+    <MESSAGE value="Making about page" />
+    <MESSAGE value="404 Not found Page, About Page, Fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="404 Not found Page, About Page, Fixes" />
   </component>
 </project>
