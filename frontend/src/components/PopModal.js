@@ -1,44 +1,54 @@
 import { useRef } from 'react'
-import { Button, Box, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from '@chakra-ui/react'
+import { Button, Box, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Text } from '@chakra-ui/react'
+import { FaCartPlus } from "react-icons/fa";
+import { GlobalStyles } from '../constants/GlobalStyles';
 
-function PopModal({addToCart, mealItem}) {
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    const finalRef = useRef(null)
+function PopModal({ addToCart, mealItem }) {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const finalRef = useRef(null)
 
-    const handleAddToCart = () => {
-        console.log("handle cart function: ", mealItem)
-        addToCart(mealItem)
-        onClose()
-    }
-  
-    return (
-      <>
-        <Box ref={finalRef} tabIndex={-1} aria-label='Focus moved to this box'>
-          Some other content that'll receive focus on close.
-        </Box>
-  
-        <Button mt={4} onClick={onOpen}>
-          Add To Card
-        </Button>
-        <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Modal Title</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              Hello There
-            </ModalBody>
-  
-            <ModalFooter>
-              <Button colorScheme='blue' mr={3} onClick={onClose}>
-                Close
-              </Button>
-              <Button variant='ghost' onClick={handleAddToCart}>Confirm</Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
-      </>
-    )
+  const handleAddToCart = () => {
+    console.log("handle cart function: ", mealItem)
+    addToCart(mealItem)
+    onClose()
   }
 
-  export default PopModal; 
+  return (
+    <>
+      <Button mt={4} onClick={onOpen}>
+        Add To Card
+      </Button>
+      <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader mt={2}>Add your <b>{mealItem?.title}</b> to the cart</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody display={'flex'} alignItems={'center'} justifyContent={'center'} flexDirection={'column'}>
+            <FaCartPlus size={100} color={GlobalStyles.colors.secondary} />
+            <Text mt={7}>
+              Thank you for choosing DIGIT Bite Burger! We're excited to process your order. To ensure accuracy and finalize your purchase, we kindly ask you to click the 'Confirm' button below. Your satisfaction is our priority, and we appreciate your trust in us.
+            </Text>
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              bg={"white"}
+              color={GlobalStyles.colors.secondary}
+              border={`1px solid ${GlobalStyles.colors.secondary}`}
+              mr={3}
+              onClick={handleAddToCart}
+            >Confirm
+            </Button>
+            <Button
+              bg={GlobalStyles.colors.secondary}
+              color={"white"}
+              onClick={onClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
+  )
+}
+
+export default PopModal; 

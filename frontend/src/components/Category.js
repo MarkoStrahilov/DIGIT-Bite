@@ -7,8 +7,6 @@ import {auth, db, storage} from '../repository/firebase/firebase';
 
 const Category = ({ data }) => {
 
-  console.log(data)
-
     const [userUid, setUserUid] = useState(null);
     const navigate = useNavigate();
 
