@@ -4,6 +4,7 @@ export const GlobalStyles = {
         secondary: "#FF5C00"
     },
     fonts: {
-        primary: "Studly"
+        primary: "Studly",
+        secondary: "Montserrat"
     }
 }
