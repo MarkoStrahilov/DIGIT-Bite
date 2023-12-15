@@ -3,6 +3,7 @@ import { Text, Box, useDisclosure } from '@chakra-ui/react'
 import MenuBurger from '../images/MenuBurger.png'
 import MenuDrawer from './MenuDrawer'
 import '../styles/index.css'
+import { GlobalStyles } from '../constants/GlobalStyles'
 
 const CircularCategory = ({ data }) => {
 
@@ -18,7 +19,7 @@ const CircularCategory = ({ data }) => {
     }
 
     return (
-        <Box className='circle-container' style={{ position: 'relative', width: '80%', height: '55vh' }}>
+        <Box className='circle-container' style={{ position: 'relative', width: '80%', height: '65vh' }}>
             {data &&
                 data.slice(0, 8).map((elm, index) => (
                     <>
@@ -43,7 +44,8 @@ const CircularCategory = ({ data }) => {
                                         transform: "translate(-40px, 60px)",
                                         overflow: "visible",
                                         whiteSpace: "nowrap",
-                                        fontSize: 30
+                                        fontSize: 30,
+                                        fontFamily: GlobalStyles.fonts.secondary
                                     }}
                                     color="white"
                                 >{elm?.strCategory}</Text>
