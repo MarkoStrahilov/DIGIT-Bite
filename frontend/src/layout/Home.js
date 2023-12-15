@@ -8,12 +8,13 @@ import { GlobalStyles } from '../constants/GlobalStyles'
 import {useState, useEffect} from 'react';
 import { auth, db } from '../repository/firebase/firebase';
 import firebase from 'firebase/app';
+import { useNavigate } from 'react-router-dom';
 import burger from '../images/burger.png'
 import Drawer from "../components/Drawer";
 const Home = () => {
 
     const [user, setUser] = useState(null);
-
+    const navigate = useNavigate();
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             setUser(user);
@@ -24,6 +25,11 @@ const Home = () => {
             console.log('There is no logged in user');
         }
     });
+
+    const handleTryItClick = () => {
+        // Navigate to the '/menu' route
+        navigate('/menu');
+    };
 
     // console.log("final user", {user});
 
@@ -121,7 +127,20 @@ const Home = () => {
                         Gratification and Instant Flavorful Bliss!"
                     </Text>
                     <Flex>
-                        <Button color={'white'} mt={6} pl={"48px"} pr={"48px"} pb={6} pt={6} mb={"40px"} borderRadius={30} bg={GlobalStyles.colors.secondary} fontSize={'25px'} fontFamily={"Studly"}>
+                        <Button
+                            color={'white'}
+                            mt={6}
+                            pl={'48px'}
+                            pr={'48px'}
+                            pb={6}
+                            pt={6}
+                            mb={'40px'}
+                            borderRadius={30}
+                            bg={GlobalStyles.colors.secondary}
+                            fontSize={'25px'}
+                            fontFamily={'Studly'}
+                            onClick={handleTryItClick}
+                        >
                             TRY IT
                         </Button>
                         <Drawer />

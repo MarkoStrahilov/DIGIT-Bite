@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="275a4215-8cf3-4280-bee7-b85c59a33719" name="Changes" comment="1 mesto">
+    <list default="true" id="275a4215-8cf3-4280-bee7-b85c59a33719" name="Changes" comment="small change in space in MenuDrawer.js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MenuDrawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuDrawer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignUp.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/Home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="shopping-cart-quentity-total-price" />
+        <entry key="$PROJECT_DIR$/.." value="fixing-navbar-for-shopping-cart" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -208,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702636315432</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="small change in space in MenuDrawer.js">
+      <created>1702637550298</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1702637550298</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,6 +257,7 @@
     <MESSAGE value="1 mesto" />
     <MESSAGE value="added delete button for deleting items from the shopping cart" />
     <MESSAGE value="added increment and decrement button for quantity for particular product - finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="added increment and decrement button for quantity for particular product - finished" />
+    <MESSAGE value="small change in space in MenuDrawer.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="small change in space in MenuDrawer.js" />
   </component>
 </project>

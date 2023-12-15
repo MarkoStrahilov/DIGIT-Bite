@@ -42,8 +42,8 @@ const SignIn = () => {
                         Email: email,
                         Password: password
                     }).then(() => {
-                        navigate("/login");
-                        toast.success('Successfully registered!\n Log in now!', {
+                        navigate("/");
+                        toast.success('Successfully registered!', {
                             position: "top-right",
                             autoClose: 2000,
                             hideProgressBar: false,
