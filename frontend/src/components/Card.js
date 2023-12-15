@@ -19,7 +19,7 @@ function Card({ data, addToCart, size }) {
         beds: getRandomNumberFunc(2, 6),
         baths: getRandomNumberFunc(2, 10),
         title: data?.strMeal,
-        formattedPrice: getRandomNumberFunc(130, 0),
+        formattedPrice: getRandomNumberFunc(45, 10),
         reviewCount: getRandomNumberFunc(15, 1),
         rating: getRandomNumberFunc(5, 1),
         isNew: getRandomNumberFunc(15, 1) % 2 === 0 ? true : false
