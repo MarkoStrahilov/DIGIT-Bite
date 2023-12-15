@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0066ecec-2c33-4fa1-a842-93eafa96497f" name="Changes" comment="other files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/layout/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/layout/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/images/burger.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/images/burger.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/layout/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/layout/About.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +93,9 @@
       <workItem from="1702542761034" duration="738000" />
       <workItem from="1702543526094" duration="99000" />
       <workItem from="1702543638834" duration="4165000" />
-      <workItem from="1702548591405" duration="9775000" />
+      <workItem from="1702548591405" duration="18684000" />
+      <workItem from="1702589961719" duration="10436000" />
+      <workItem from="1702629605437" duration="435000" />
     </task>
     <task id="LOCAL-00001" summary="made UI cards">
       <option name="closed" value="true" />

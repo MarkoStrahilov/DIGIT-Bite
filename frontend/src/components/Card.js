@@ -5,7 +5,7 @@ import { GlobalStyles } from '../constants/GlobalStyles'
 import '../Fonts/fonts.css'
 import PopModal from './PopModal'
 
-function Card({ data, addToCart }) {
+function Card({ data, addToCart, size }) {
 
     const getRandomNumberFunc = (max, min) => {
         const rand = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -26,7 +26,7 @@ function Card({ data, addToCart }) {
     }
 
     return (
-        <Box maxW={'300px'}
+        <Box maxW={size ? size : '300px'}
             borderWidth='2px'
             borderRadius='lg'
             overflow='hidden'
