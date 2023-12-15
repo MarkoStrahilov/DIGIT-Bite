@@ -9,7 +9,7 @@ const MenuSidebar = ({ data }) => {
 
     return (
         <Box
-            minW={"25%"}
+            maxH={"110vh"}
             mr={20}
             bg={"white"}
             p={5}

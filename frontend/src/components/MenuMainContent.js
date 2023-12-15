@@ -4,6 +4,7 @@ import { Box, Text } from '@chakra-ui/react'
 import { useParams } from 'react-router-dom'
 import Category from './Category'
 import Loading from './Loading'
+import { GlobalStyles } from '../constants/GlobalStyles'
 
 const MenuMainContent = () => {
 
@@ -30,7 +31,7 @@ const MenuMainContent = () => {
     }, [categoryName?.categoryName])
 
     if (data?.length === 0) {
-        return <Text>Hello There Please select your menu</Text>
+        return <Text fontFamily={GlobalStyles.fonts.secondary} fontSize={40} color={'white'}>Please Select A Menu Category</Text>
     } else if (loading) {
         return <Loading />
     } else {
