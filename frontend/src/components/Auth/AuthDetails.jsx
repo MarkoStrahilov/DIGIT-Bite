@@ -20,6 +20,7 @@ const AuthDetails = () => {
     }, []);
 
     const userSignOut = () => {
+        console.log("inside user sign out")
         signOut(auth).then(() => {
             console.log("signed out success!")
         }).catch((err) => {

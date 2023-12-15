@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="275a4215-8cf3-4280-bee7-b85c59a33719" name="Changes" comment="small type fix in for the drawer size">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/AuthDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/AuthDetails.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
