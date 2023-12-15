@@ -54,11 +54,11 @@ const MenuDrawer = ({ menu, handleOnClose, handleOnOpen }) => {
 
     
     let Product;
-    const addToCart = (product) => {
+    const addToCart = (product, quantity) => {
         if(userUid !== null) {
             console.log("product in category and not null", product);
             Product = product;
-            Product['quantity'] = 1;
+            Product['quantity'] = quantity ? quantity : 1;
             Product['TotalProductPrice'] = Product.quantity*Product.formattedPrice;
             db.collection('Cart ' + userUid).doc(product.mealId).set(Product)
                 .then(() => {
