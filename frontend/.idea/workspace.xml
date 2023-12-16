@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="275a4215-8cf3-4280-bee7-b85c59a33719" name="Changes" comment="small change in space in MenuDrawer.js">
+    <list default="true" id="275a4215-8cf3-4280-bee7-b85c59a33719" name="Changes" comment="changed when user registers it redirects him to the home page /">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignUp.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layout/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/Home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="fixing-navbar-for-shopping-cart" />
+        <entry key="$PROJECT_DIR$/.." value="fixing-navbar" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -59,7 +60,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="20" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -131,6 +132,9 @@
       <workItem from="1702461373311" duration="253000" />
       <workItem from="1702545973958" duration="6594000" />
       <workItem from="1702553533335" duration="4069000" />
+      <workItem from="1702723851734" duration="285000" />
+      <workItem from="1702724227459" duration="287000" />
+      <workItem from="1702724909076" duration="1287000" />
     </task>
     <task id="LOCAL-00001" summary="added axios, repository fetching">
       <created>1702307473831</created>
@@ -216,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702637550298</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="changed when user registers it redirects him to the home page /">
+      <created>1702640988968</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1702640988969</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +269,7 @@
     <MESSAGE value="added delete button for deleting items from the shopping cart" />
     <MESSAGE value="added increment and decrement button for quantity for particular product - finished" />
     <MESSAGE value="small change in space in MenuDrawer.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="small change in space in MenuDrawer.js" />
+    <MESSAGE value="changed when user registers it redirects him to the home page /" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed when user registers it redirects him to the home page /" />
   </component>
 </project>
