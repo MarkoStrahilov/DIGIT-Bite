@@ -14,6 +14,13 @@ by our team. Explore our app [here](https://digit-bite.web.app).
 We are proud to announce that we participated in the 
 CALL FOR WORKSHOP PARTICIPATION - DIGIT and achieved **1st place**! 🥇
 
+## Installation (Docker)
+1. Clone this repository: ``git clone https://github.com/MarkoStrahilov/DIGIT-Bite.git``
+2. Open the folder with your IDE.
+3. Open your terminal
+4. Navigate to the root project: ``cd .\DIGIT-Bite\ ``
+5. Write: ``docker-compose up --build``
+6. In your browser visit: [localhost:3000](http://localhost:3000)
 
 
 ## Mentorship and Learning Experience 🚀
