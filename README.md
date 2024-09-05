@@ -18,9 +18,9 @@ CALL FOR WORKSHOP PARTICIPATION - DIGIT and achieved **1st place**! 🥇
 1. Clone this repository: ``git clone https://github.com/MarkoStrahilov/DIGIT-Bite.git``
 2. Open the folder with your IDE.
 3. Open your terminal
-4. Navigate to the root project: ``cd .\DIGIT-Bite\ ``
-5. Open Docker Desktop
-6. Write: ``docker-compose up --build``
+4. Open Docker Desktop
+5. Navigate to the root project: ``cd .\DIGIT-Bite\ ``
+6. Write in terminal: ``docker-compose up --build``
 7. In your browser visit: [localhost:3000](http://localhost:3000)
 
 
