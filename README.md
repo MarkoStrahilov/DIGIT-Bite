@@ -19,8 +19,9 @@ CALL FOR WORKSHOP PARTICIPATION - DIGIT and achieved **1st place**! 🥇
 2. Open the folder with your IDE.
 3. Open your terminal
 4. Navigate to the root project: ``cd .\DIGIT-Bite\ ``
-5. Write: ``docker-compose up --build``
-6. In your browser visit: [localhost:3000](http://localhost:3000)
+5. Open Docker Desktop
+6. Write: ``docker-compose up --build``
+7. In your browser visit: [localhost:3000](http://localhost:3000)
 
 
 ## Mentorship and Learning Experience 🚀
